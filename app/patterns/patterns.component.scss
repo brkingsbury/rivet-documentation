@@ -1,0 +1,36 @@
+    .img-block {
+        display: inline-block;
+        margin: var(--rvt-spacing-sm);
+
+        .example-img {
+            width: auto;
+            height: 150px;
+            display: block;
+        }
+    }
+
+    .a11y-contrast {
+        img {
+            height: 225px;
+            margin-right: var(--rvt-spacing-lg);
+        }
+    }
+
+    .principles {
+        h3 {
+            margin: var(--rvt-spacing-md) 0 var(--rvt-spacing-xs) 0;
+        }
+    }
+
+    h3 {
+        margin-top: 30px;
+    }
+
+    h4,
+    h5 {
+        margin-top: 15px;
+        font-weight: var(--rvt-font-weight-regular);
+    }
+    img {
+        max-width: 800px;
+    }

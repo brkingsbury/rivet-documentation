@@ -1,0 +1,63 @@
+<header class="page-header">
+    <h1>Icons</h1>
+    <div class="header-icons">
+        <a class="rivet-icon-pdf"
+           target="new"
+           href="../../../assets/specs/Polaris_Icon_Specs.pdf"
+           title="Spec Sheet"></a>
+    </div>
+</header>
+
+<section class="component-container">
+    <h3>Implementation</h3>
+    <p>For directions on implementation see <a routerLink="/components/icon">Icon component</a>.
+    </p>
+</section>
+
+<section class="component-container">
+    <h3>Available icons</h3>
+    <p>Click an icon below to copy the class name to your clipboard.</p>
+
+    <div class="search-input">
+        <input [(ngModel)]="searchText"
+               placeholder="Search icon name" />
+        <span class="rivet-icon-search"></span>
+    </div>
+
+    <div class="icon-container">
+        <button class="rvt-btn-icon"
+                *ngFor="let ico of icons | filter : searchText"
+                title="rivet-icon-{{ ico }}"
+                (click)="copyText(icoInput)">
+            <span class="rivet-icon-{{ ico }}"></span>
+            <input type="text"
+                   value="rivet-icon-{{ ico }}"
+                   #icoInput
+                   readonly />
+            <span class="note"
+                  [hidden]="alert != icoInput">copied to clipboard!</span>
+        </button>
+        <p class="no-results"
+           *ngIf="!(icons | filter: searchText).length">
+            No results found for "{{searchText}}"
+        </p>
+    </div>
+</section>
+
+<section class="component-container">
+    <strong>Atypical direct CSS usage</strong>
+    <p>
+        !IMPORTANT: starting in v0.5.3 icons referenced in css via unicode characters will no longer be supported. To
+        add an
+        icon through css use:
+    </p>
+    <p>
+        <code>.element:before &#65371; @extend .inner-rivet-icon-name !optional; &#65373;</code>
+    </p>
+    <ul>
+        <li><code>:before</code> it is required that the icon be added as a pseudo-element</li>
+        <li><code>@extend</code> will reference the mixin from the Rivet icon font stylesheet</li>
+        <li><code>inner-</code> is a required prefix before the name of the icon</li>
+        <li><code>rivet-icon-name</code> is the standard name of the icon you want to use from the list below.</li>
+    </ul>
+</section>

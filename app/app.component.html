@@ -1,0 +1,19 @@
+<a #main
+   class="skip-link"
+   tabindex="0"
+   (click)="skip()"
+   (keyup)="onKeyup($event)">
+    Skip Navigation
+</a>
+
+<app-top-nav></app-top-nav>
+<div class="style-wrapper"
+     [ngClass]="{ fancy: difCursor, 'home': router.url === '/home' }"
+     (keydown)="onKeydown($event)"
+     (mousedown)="endFocus()">
+
+    <app-side-nav></app-side-nav>
+    <section class="main">
+        <router-outlet></router-outlet>
+    </section>
+</div>

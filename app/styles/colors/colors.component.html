@@ -1,0 +1,179 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+<header class="page-header">
+    <h1>Colors</h1>
+    <div class="header-icons">
+        <button class="rvt-btn-icon toggle-btns"
+                (click)="cardView = true"
+                [class.selected]="cardView">
+            <i class="material-icons">
+                view_module
+            </i>
+            Grid view
+        </button>
+
+        <button class="rvt-btn-icon toggle-btns"
+                (click)="cardView = false"
+                [class.selected]="!cardView">
+            <i class="material-icons">
+                list
+            </i>
+            List view
+        </button>
+    </div>
+</header>
+
+<p>Rivet uses CSS Variables for our color variables to enable easy brand configuration and theme swapping.</p>
+<p>Use these CSS variables in place of raw HEX or RGB values in the component stylesheets. For example:
+    <code>background-color: var(--rvt-color-primary);</code>.</p>
+
+<ng-container *ngIf="cardView">
+    <section class="color-swatches light-mode-only"
+             *ngFor="let color of colorVariables.lightColorGroup">
+        <h2>{{color.title}}</h2>
+        <ng-container *ngIf="color.title !== 'Text colors'">
+            <div class="swatch"
+                 *ngFor="let swatch of color.colors"
+                 [ngStyle]="{'background-color': 'var('+swatch.var+')'}">
+                <div class="swatch-info">
+                    <p><strong>{{swatch.var}}</strong></p>
+                    <p>{{swatch.hsl}}</p>
+                    <p>{{swatch.hex}}</p>
+                    <p>{{swatch.rgb}}</p>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="color.title === 'Text colors'">
+            <div class="swatch text"
+                 *ngFor="let swatch of color.colors">
+                <p class="aa"
+                   [ngStyle]="{'color': 'var('+swatch.var+')'}">Aa</p>
+                <div class="swatch-info">
+                    <p><strong>{{swatch.var}}</strong></p>
+                    <p>{{swatch.hsl}}</p>
+                    <p>{{swatch.hex}}</p>
+                    <p>{{swatch.rgb}}</p>
+                </div>
+            </div>
+        </ng-container>
+    </section>
+
+    <section class="color-swatches dark-mode-only-flex"
+             *ngFor="let color of colorVariables.darkColorGroup">
+        <h2>{{color.title}}</h2>
+        <ng-container *ngIf="color.title !== 'Text colors'">
+            <div class="swatch"
+                 *ngFor="let swatch of color.colors"
+                 [ngStyle]="{'background-color': 'var('+swatch.var+')'}">
+                <div class="swatch-info">
+                    <p><strong>{{swatch.var}}</strong></p>
+                    <p>{{swatch.hsl}}</p>
+                    <p>{{swatch.hex}}</p>
+                    <p>{{swatch.rgb}}</p>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="color.title === 'Text colors'">
+            <div class="swatch text"
+                 *ngFor="let swatch of color.colors">
+                <p class="aa"
+                   [ngStyle]="{'color': 'var('+swatch.var+')'}">Aa</p>
+                <div class="swatch-info">
+                    <p><strong>{{swatch.var}}</strong></p>
+                    <p>{{swatch.hsl}}</p>
+                    <p>{{swatch.hex}}</p>
+                    <p>{{swatch.rgb}}</p>
+                </div>
+            </div>
+        </ng-container>
+    </section>
+</ng-container>
+
+<section class="component-container light-mode-only"
+         *ngIf="!cardView">
+    <table class="mat-table color-container"
+           *ngFor="let group of colorVariables.lightColorGroup">
+        <tr class="mat-header-row table-header">
+            {{ group.title }}
+        </tr>
+        <tr class="mat-header-row">
+            <th class="mat-header-cell">Swatch</th>
+            <th class="mat-header-cell">Variable</th>
+            <th class="mat-header-cell">Hex</th>
+            <th class="mat-header-cell">HSL</th>
+            <th class="mat-header-cell">RGB</th>
+        </tr>
+        <tr *ngFor="let color of group.colors"
+            class="mat-row">
+            <td class="mat-cell swatch">
+                <div class="circle"
+                     [ngStyle]="{'background-color':  'var('+color.var+')'}"></div>
+            </td>
+            <td class="mat-cell">
+                <code>{{color.var}}</code>
+            </td>
+            <td class="mat-cell">
+                <code>{{color.hex}}</code>
+            </td>
+            <td class="mat-cell">
+                <code>{{color.hsl}}</code>
+            </td>
+            <td class="mat-cell">
+                <code>{{color.rgb}}</code>
+            </td>
+        </tr>
+    </table>
+</section>
+
+<section class="component-container dark-mode-only"
+         *ngIf="!cardView">
+    <table class="mat-table color-container"
+           *ngFor="let group of colorVariables.darkColorGroup">
+        <tr class="mat-header-row table-header">
+            {{ group.title }}
+        </tr>
+        <tr class="mat-header-row">
+            <th class="mat-header-cell">Swatch</th>
+            <th class="mat-header-cell">Variable</th>
+            <th class="mat-header-cell">Hex</th>
+            <th class="mat-header-cell">HSL</th>
+            <th class="mat-header-cell">RGB</th>
+        </tr>
+        <tr *ngFor="let color of group.colors"
+            class="mat-row">
+            <td class="mat-cell swatch">
+                <div class="circle"
+                     [ngStyle]="{'background-color':  'var('+color.var+')'}"></div>
+            </td>
+            <td class="mat-cell">
+                <code>{{color.var}}</code>
+            </td>
+            <td class="mat-cell">
+                <code>{{color.hex}}</code>
+            </td>
+            <td class="mat-cell">
+                <code>{{color.hsl}}</code>
+            </td>
+            <td class="mat-cell">
+                <code>{{color.rgb}}</code>
+            </td>
+        </tr>
+    </table>
+</section>
+<section class="component-container">
+    <h2>All Color Variables</h2>
+    <p>This is a comprehensive list of all color variables that exist in Rivet.</p>
+    <table class="color-variable-table">
+        <tr>
+            <th>Variable</th>
+            <th>Assigned Value</th>
+            <th>Sample</th>
+        </tr>
+        <tr *ngFor="let variable of cssVariables">
+            <td>{{variable.key}}</td>
+            <td>{{variable.value}}</td>
+            <td [ngStyle]="{'background-color': 'var(' + variable.key + ')'}">&nbsp;</td>
+        </tr>
+    </table>
+</section>

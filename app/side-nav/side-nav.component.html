@@ -1,0 +1,19 @@
+<nav class="side-nav">
+    <div class="category"
+    routerLinkActive="expanded"
+    [ngClass]="{ expanded: category.expanded }"
+    *ngFor="let category of sideNav.categories">
+        <button class="category-header" (click)="expand(category)" tabindex="0">
+            <span class="rivet-icon-caret-right"></span>
+            {{ category.title }}
+        </button>
+        <div class="sub-nav-list">
+            <a class="rvt-link list-link" *ngFor="let link of category.links" 
+            [ngClass]="{ active: router.url === link.path }"
+            [routerLink]="link.path">
+            {{ link.name }}
+            </a>
+        </div>
+    
+    </div>
+</nav>

@@ -1,0 +1,42 @@
+<nav id="TopHeader"
+     [ngClass]="{home: router.url === '/home', collapse: headerCollapse3}">
+    <a class="logo"
+       routerLink="/home">
+        <img src="../../assets/rivet_logo_white.svg"
+             alt="Rivet logo" />
+    </a>
+    <div id="HeaderLinks">
+        <button class="rvt-btn-text inverse"
+                routerLink="/getting-started/designers">Design</button>
+        <button class="rvt-btn-text inverse"
+                routerLink="/getting-started/developers">Develop</button>
+        <button class="rvt-btn-primary inverse light-only"
+                routerLink="/getting-started/contribute">Contribute</button>
+        <button class="rvt-btn-icon inverse rivet-icon-settings" (click)="toggleDrawer()"></button>
+    </div>
+
+</nav>
+<app-theme-editor drawerStatus="{{colorDrawer}}"></app-theme-editor>
+<div id="HeroImage"
+     [ngClass]="{home: router.url === '/home', collapse: headerCollapse3}"
+     [ngStyle]="{'margin-top': topOffset}">
+    <img class="logo"
+         src="../../../assets/Rivet_design_system.svg"
+         alt="Rivet logo"
+         [ngClass]="{collapse: headerCollapse1}" />
+    <p class="mission"
+       [ngClass]="{collapse: headerCollapse2}">
+        Providing helpful, high quality, and cohesive resources to ensure delightful user
+        experiences.
+    </p>
+    <a class="rvt-link version"
+       routerLink="/changelog/versions">Latest version: {{ versions[0].version }}</a>
+</div>
+<img src="../../assets/dark_bg.png"
+     class="logo dark-bg" />
+<object type="image/svg+xml"
+        data="../../assets/NaviPlan-Mosaic-bw.svg"
+        class="logo dark-bg"></object>
+<object type="image/svg+xml"
+        data="../../assets/NaviPlan-Mosaic.svg"
+        class="logo light-bg"></object>

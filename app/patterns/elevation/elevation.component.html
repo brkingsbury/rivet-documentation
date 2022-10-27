@@ -1,0 +1,90 @@
+<main>
+    <header>
+        <h1 class="page-header">Elevation</h1>
+    </header>
+    <section class="content-container">
+        <section>
+            <h2>Overview</h2>
+            <p>Elevation is the style attribute that communicates that an item is positioned above or over a page’s content.</p>
+            <p>Visually, elevation is communicated through the use of a subtle shadow around and beneath the perimeter of a component such as a snackbar, popover or help drawer. This indicates that the elevated item may be temporarily obscuring elements below it, but does not explicitly prevent a user from interacting with other areas of the page beneath it. 
+            </p>
+            <figure>
+                <img src="../../../assets/patterns/elevation/np_prem_snackbar_cropped.png"
+                     alt="Image showing an elevated snackbar in NaviPlan Premium" />
+            </figure>
+            <h3>Fixed positioning</h3>
+            <p>When an element has fixed positioning set, that’s a good indicator that elevation should be used. As seen below, this gives the perception that items are floating above other content while other page content slides freely beneath it. 
+            </p>
+            <figure>
+                <img src="../../../assets/patterns/elevation/snackbar_scroll.gif"
+                     alt="Animated image showing a content scrolling beneath a snackbar component" />
+                <figcaption> Applying elevation to this fixed-position snackbar helps demonstrate the relationship between the snackbar and the page it floats above. </figcaption>
+            </figure>
+        </section>
+        <section>
+            <h2>Elevation height</h2>
+            <p>Elevation uses the metaphor of perceived height to convey to the user how far above the page an elevated container sits.
+            </p>
+            <p>For smaller items that represent information or actions that don’t represent a significant context shift, elevation will be low. For larger items that are relevant to the page, but represent actions or information that represent a more significant shift of focus outside of the user’s current task or context, elevation will be high. The more an item removes the user from their previous context by appearing, the greater the elevation.
+            </p>
+            <figure>
+                <img src="../../../assets/patterns/elevation/elevation_heights.png"
+                     alt="Image showing 'high', 'medium', 'low' and 'none' elevation heights used in Rivet" />
+            </figure>
+            <p>Elevation applies regardless of container background color. For all heights, the shadow color, offset, and spread remain consistent. The blur distance is increased to communicate a greater elevation height. 
+            </p>
+            <h3>When to use each elevation</h3>
+            <p>In most cases, elevation will be pre-determined for Rivet components. If elevation is needed in an application not covered by a Rivet component, consider the following to determine what elevation height is appropriate:
+            </p>
+            <ul>
+                <li><strong>size of the container</strong> - larger containers typically call for higher elevation</li>
+                <li><strong>shift of user focus that is incurred</strong> - when the elevated container appears, the more the user is required to shift their focus to the container, the greater the elevation. Little to no attention shift = lower elevation; Major attention shift = higher elevation.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Examples</h2>
+            
+            <p><strong>Tooltips</strong> are typically initiated by a direct user action (such as hovering over a badge) and then are displayed where the user was focusing their attention, so little focus shift is necessary. For tooltips that are not initiated directly by the user, it is not critical for any action be taken by the user. Tooltips have a low elevation.</p>
+            <figure>
+                <img src="../../../assets/patterns/elevation/tooltip.png"
+                     alt="Image showing tooltips with low elevation styling applied" />
+            </figure>
+            
+            <p><strong>Popovers</strong> are initiated by a user action, so the user anticipates them appearing. Typically, a user will need to complete what they are doing in the popover before they can continue on with their workflow. Popovers have a low elevation.</p>
+            <figure>
+                <img src="../../../assets/patterns/elevation/popover.png"
+                     alt="Image showing a popover with low elevation styling applied" />
+            </figure>
+            <figure>
+                <img src="../../../assets/patterns/elevation/popover_in_context.png"
+                     alt="Image showing a popover that filters by date range in context within NaviPlan Essentials" />
+            </figure>
+            
+            <p><strong>Fixed navigation</strong> such as what appears in Essentials is visible to the user for the majority of the time they are in the application. Accordingly, users are well-trained to know it’s there, and it would be inappropriate for it to draw significant attention from the user away from other elements on the page. Fixed navigation has a low elevation.</p>
+            <figure>
+                <img src="../../../assets/patterns/elevation/fixed_nav.png"
+                     alt="Image showing the fixed navigation from NaviPlan Essentials with low elevation styling applied to the fixed top and bottom bars" />
+            </figure>
+            
+            <p><strong>Snackbars</strong> represent items that don’t require (but may suggest) a user action, and in many cases are purely informational, allowing a user to continue with their task with little to no distraction. However, because snackbars can appear in a situation when a user might not anticipate it, they require slightly higher elevation to ensure that they are noticed by the user. Snackbars have a medium elevation.</p>
+            <figure>
+                <img src="../../../assets/patterns/elevation/snackbar.png"
+                     alt="Image showing a snackbar component with medium elevation styling applied" />
+            </figure>
+            <figure>
+                <img src="../../../assets/patterns/elevation/np_snackbar.png"
+                     alt="Image showing a snackbar that greets the user and informs them of last login date, shown in context on the Client List page of NaviPlan Premium" />
+            </figure>
+            <figure>
+                <img src="../../../assets/patterns/elevation/ess_snackbar.png"
+                     alt="Image showing a snackbar that announces updated account data available in context within the goals assessment of NaviPlan Essentials" />
+            </figure>
+            
+            <p><strong>Drawers</strong> tend to be large and cover a significant amount of page content, which forces the user to reorient themselves upon opening, despite them being user initiated and context-sensitive. Drawers have a high elevation, despite whether they are used with an apron overlaying the context beneath.</p>
+            <figure>
+                <img src="../../../assets/patterns/elevation/drawer.png"
+                     alt="Image showing a drawer that allows the user to add a household member, shown in context within the goals assessment of NaviPlan Essentials" />
+            </figure>
+        </section>
+    </section>
+</main>

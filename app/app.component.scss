@@ -1,0 +1,232 @@
+@import 'typeStyles';
+@import 'rivetTheme';
+
+.style-wrapper {
+    height: 100%;
+    transition: margin 400ms;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1370px;
+    margin-top: 70px;
+    display: flex;
+    transition: margin 400ms;
+    padding: 0 30px;
+
+    &.home {
+        margin-top: 650px;
+    }
+}
+
+.skip-link {
+    z-index: 110;
+    position: fixed;
+    color: transparent;
+    top: -30px;
+    background: transparent;
+    font-size: 16px;
+
+    &:focus {
+        color: var(--rvt-color-text-contrast);
+        top: 5px;
+        left: 30px;
+        transition: color 100ms ease;
+    }
+}
+
+.main {
+    left: 580px;
+    margin: 90px 0;
+    width: 60%;
+    min-width: 300px;
+    max-width: 1000px;
+    flex-grow: 1;
+    height: fit-content;
+}
+
+// Text styles for the whole site (except components)
+.component-container,
+.content-container {
+    font-size: 0;
+}
+
+section,
+.component-container {
+    margin-bottom: var(--rvt-spacing-xxxl);
+
+    p {
+        margin-bottom: var(--rvt-spacing-xl);
+    }
+}
+
+figure {
+    margin: var(--rvt-spacing-xs) 0 var(--rvt-spacing-md) 0;
+
+    figcaption {
+        color: var(--rvt-color-neutral-6);
+    }
+}
+
+ul {
+    padding-left: 0;
+
+    li {
+        margin-left: var(--rvt-spacing-md);
+    }
+}
+
+.color-selector-btn {
+    position: absolute;
+    top: 75px;
+    z-index: 100;
+    right: 0;
+
+    &:before {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+.mode-btn {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 100;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--rvt-color-neutral-3);
+    margin-bottom: var(--rvt-spacing-lg);
+    padding-bottom: var(--rvt-spacing-md);
+
+    .header-icons {
+        a {
+            vertical-align: middle;
+            text-decoration: none;
+            margin-left: var(--rvt-spacing-sm);
+
+            &.rivet-icon-pdf {
+                color: var(--rvt-color-text);
+                font-size: 24px;
+                display: inline-block;
+                height: 24px;
+                width: 24px;
+            }
+
+            &.sketch,
+            &.sketch img {
+                display: inline-block;
+                height: 24px;
+                width: 24px;
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        button.compliant {
+            margin-left: var(--rvt-spacing-sm);
+            height: 27px;
+            width: 27px;
+            border: none;
+            font-weight: var(--rvt-font-weight-bold);
+            font-size: var(--rvt-font-size-h);
+
+            padding: var(--rvt-spacing-xxs);
+            border-radius: 50%;
+            background-color: var(--rvt-color-neutral-8);
+            color: var(--rvt-color-neutral-0);
+            vertical-align: middle;
+            cursor: pointer;
+            position: relative;
+
+            &:hover:after {
+                position: absolute;
+                left: -5px;
+                top: -5px;
+                height: 33px;
+                width: 33px;
+                content: '';
+                border: 2px solid var(--rvt-color-text);
+                border-radius: 50%;
+                background: transparent;
+            }
+        }
+    }
+}
+
+.component-container.deprecated {
+    opacity: 0.5;
+}
+
+.rivet-mini-expansion-body {
+    font-size: 1.4rem;
+}
+
+// styles for settings drawer
+.theme-drawer {
+    app-dark-mode {
+        margin: 30px;
+    }
+
+    .rivet-drawer.open [rivet-drawer-content] {
+        z-index: 1000;
+        width: 35vw;
+        max-width: 600px;
+        overflow: auto;
+    }
+}
+
+.color-variable-table {
+    @include rvt-font-g;
+
+    th {
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+.version-container,
+.theme-drawer {
+
+    // style expansion panels for settings + version history - use specific px to avoid movement
+    advicent-rivet-expansion-panel {
+        .rvt-line-expansion {
+            border: 2px solid var(--rvt-color-neutral-2);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            height: 70px;
+
+            &.expanded {
+                height: auto;
+            }
+
+            .top-panel {
+                border: none;
+                justify-content: flex-end;
+                height: 40px;
+
+                button {
+                    margin-left: 15px;
+                }
+            }
+
+            .expansion {
+                [expansion-content] {
+                    margin: 0;
+                    padding: 15px;
+                }
+            }
+
+        }
+
+    }
+}
+
+[advicentRivetCarouselSlide],
+[advicentRivetCarouselSlide] h3 {
+    color: var(--rvt-color-neutral-1-contrast);
+}

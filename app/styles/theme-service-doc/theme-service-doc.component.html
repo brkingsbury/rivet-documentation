@@ -1,0 +1,90 @@
+<header class="page-header">
+    <h1>Custom Theme Service</h1>
+</header>
+
+<section class="component-container">
+    <p>
+        The custom theme service accepts an array of color variable objects and digests them into a theme
+        that will be updated instantaneously.
+    </p>
+</section>
+<section class="component-container">
+    <h3>Import Theme service from Rivet Style Module</h3>
+    <p>
+        To import the rivet style module in a way that supports the custom theme service you must do so with the
+        <code>forRoot()</code> function in the module import, as seen in this example.
+    </p>
+    <app-example-snippet>
+        <textarea title="app.module.ts"
+                  class="example-code"
+                  readonly>
+import { RivetStyleModule } from 'rivet-style';
+
+@NgModule({
+    imports: [
+        RivetStyleModule.forRoot()
+    ]
+})
+</textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <h3>Apply custom theme</h3>
+    <p>To apply a custom theme, simply pass a data object with the appropriate structure to the <code>applyCustomTheme</code> function of the theme service.
+    </p>
+    <p>The data object is intended to match the data object that comes back as a response from the themeID based GET call in the <a href="https://api-usa-dev.naviplan.org/themes/swagger/index.html">Theme API.</a>  Simply passing the <code>response.data</code> from the API would be perfectly acceptible
+    </p>
+    <p>
+        <app-parameters [attrsConfig]="attrsConfig">
+        </app-parameters>
+    </p>
+    <app-example-snippet>
+        <textarea title="app.component.ts"
+                  class="example-code"
+                  readonly>
+import { RivetThemingService } from 'rivet-style';
+
+export class AppComponent {
+    constructor(
+        public rvtThemeService: RivetThemingService
+    ) {}
+
+    const themeObject = {
+        "themeStyles": {
+            "--rvt-color-variable-name": "color value",
+            ...
+        },
+        "themeStylesDark": {
+            "--rvt-color-variable-name": "color value",
+            ...
+        }
+    }
+
+    this.rvtThemeService.applyCustomTheme(themeObject);
+}
+</textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <h3>Restore Default Theme/Remove Custom Theme</h3>
+    <p>
+        to remove the <code>&lt;style&gt;</code> tag that is applied through the custom theme service, simply call the <code>removeCustomTheme()</code> function to revert to the default Rivet theme.
+    </p>
+    <app-example-snippet>
+        <textarea title="app.component.ts"
+                  class="example-code"
+                  readonly>
+import { RivetThemingService } from 'rivet-style';
+
+export class AppComponent {
+    constructor(
+        public rvtThemeService: RivetThemingService
+    ) {}
+
+    this.rvtThemeService.removeCustomTheme();
+}
+</textarea>
+    </app-example-snippet>
+</section>

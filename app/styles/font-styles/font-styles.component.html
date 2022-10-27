@@ -1,0 +1,100 @@
+<header class="page-header">
+    <h1>Font Styles</h1>
+    <!-- <div class="header-icons">
+    <a class="rivet-icon-pdf" title="spec sheet" href="" target="new"></a>
+  </div> -->
+</header>
+<section class="component-container type-list">
+    <header>
+        <h2>Font mixins</h2>
+        <p>Mixins contain multiple set font styles (font weight, font family, and font size) within the include.
+            <br />
+            Example mixin:<br />
+            <code>@mixin rvt-font-h &#123;<br/>
+                font-weight: var(--rvt-font-weight-regular);<br/>
+                font-size: var(--rvt-font-size-h);<br/>
+                font-family: var(--rvt-font-family);<br/>
+                &#125;
+            </code>
+        </p>
+        <p>All mixins (except font-g & font-h) also include logic to resize at smaller screen sizes. This helps maintain
+            hierarchy while allowing more content to fit on the page with smaller screens.</p>
+    </header>
+    <h3>Implementation</h3>
+    <p>To utilize the SCSS mixins that contain our font rules you must import the stylesheet that contains the mixins by
+        doing <code>@import 'typeStyles';</code></p>
+    <p>Within the css, use <code>@include (mixin-name)</code>. The list of mixins and their sizes are included below.
+        All mixins are set to a regular font weight.</p>
+    <span>size (rem)</span>
+    <span>mixin</span>
+    <div *ngFor="let mixin of classes"
+         class="example">
+        <p class="value">{{mixin.size}}</p>
+        <p class="{{mixin.var}}">{{mixin.var}}</p>
+    </div>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Font family</h2>
+    </header>
+    <p>Rivet uses Nunito Sans as the only font-family for all content. Nunito
+        Sans is imported in the Rivet package so there is no need to import it within individual projects.</p>
+    <h3>Implementation</h3>
+    <p>To set the font family in the css, use <code>font-family: var(--rvt-font-family);</code></p>
+</section>
+
+<section class="component-container type-list">
+    <header>
+        <h2>Font classes</h2>
+        <p>While Rivet does support applying the above font mixins as classes directly to an element or component,
+            <strong>it is recommended to include the mixin with the css instead.</strong> This allows the text to
+            maintain the ability for live style changing (such as increasing text size).</p>
+    </header>
+    <h3>Implementation</h3>
+    <p>Apply the classes listed below directly to any element or component to set their font styles to the ones seen in
+        the table above (font-mixins). Example:
+        <code> &#60;p class="rvt-font-g">This is text &#60;/p></code></p>
+    <ul *ngFor="let class of classes">
+        <li>.{{class.var}}</li>
+    </ul>
+</section>
+
+<section class="component-container font-styles">
+    <header>
+        <h2>Font weights</h2>
+        <p>Font weights are used to help establish hierarchy within a page.</p>
+    </header>
+    <h3>Implementation</h3>
+    <p>Currently Rivet has 3 font weights to use: light, regular, and bold.
+        <br />
+        To set the font weight of text, use
+        <code>font-weight: var(--rvt-font-weight-light);</code>
+    </p>
+    <h3>Examples</h3>
+    <p class="ex light">Light text (200) <code>font-weight: var(--rvt-font-weight-light);</code></p>
+    <p class="ex regular">Regular text (400) <code>font-weight: var(--rvt-font-weight-regular);</code></p>
+    <p class="ex bold">Bold text (700) <code>font-weight: var(--rvt-font-weight-bold);</code></p>
+</section>
+
+<section class="component-container type-list">
+    <header>
+        <h2>Font sizes</h2>
+        <p></p>
+    </header>
+    <h3>Implementation</h3>
+    <p>To set text to a specific font size, use Rivet font size variables by using
+        <code>font-size: var(--rvt-font-size-a);</code>.</p>
+    <p>The full list of the available variables is listed below.</p>
+    <span>rem</span>
+    <span>variable</span>
+    <div *ngFor="let size of sizes"
+         class="example">
+        <p class="value">{{size.val}}</p>
+        <p [ngStyle]="{'font-size': 'var(--'+size.var+')'}">--{{size.var}}</p>
+    </div>
+    <h3>Use</h3>
+    <p>For use within products, sizes display-1 through size-d will be commonly used for headers. Sizes e, f, and g will
+        be used for body copy. Size-h should be reserved for labels and captions. Consult with your designer to see
+        which size should be used.</p>
+</section>

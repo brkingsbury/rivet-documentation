@@ -1,0 +1,102 @@
+<header class="page-header">
+    <h1>Dark Mode Service</h1>
+</header>
+
+<section class="component-container">
+    <p>
+        Rivet's dark mode service (<code>RivetThemingService</code>) handles applying a dark mode to the Rivet color
+        variables, enables a dark mode
+        initializer, and handles a local variable flag to preserve dark mode state across sessions.
+    </p>
+</section>
+<section class="component-container">
+    <h3>Import Theme service from Rivet Style Module</h3>
+    <p>
+        To import the rivet style module in a way that supports the dark mode service you must do so with the
+        <code>forRoot()</code> function in the module import, as seen in this example.
+    </p>
+    <app-example-snippet>
+        <textarea title="app.module.ts"
+                  class="example-code"
+                  readonly>
+import { RivetStyleModule } from 'rivet-style';
+
+@NgModule({
+    imports: [
+        RivetStyleModule.forRoot()
+    ]
+})
+</textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <h3>Initialize Dark Mode</h3>
+    <p>To initialize dark mode you can call the dark mode service to initialize itself. Based on the local storage
+        variable
+        that the dark mode saves for itself it will apply the relevant mode within the Rivet stylesheets and variables.
+    </p>
+    <app-example-snippet>
+        <textarea title="app.component.ts"
+                  class="example-code"
+                  readonly>
+
+import { RivetThemingService } from 'rivet-style';
+
+export class AppComponent {
+    constructor(public rvtThemeService: RivetThemingService) {
+        rvtThemeService.initTheme();
+    }
+}
+</textarea>
+    </app-example-snippet>
+</section>
+<section class="component-container">
+    <h3>Toggle Dark Mode</h3>
+    <p>The Rivet theming service can be used to toggle the dark mode at any point. By utilizing the standard css
+        variables
+        provided through Rivet we are able to make those changes dynamically without having to reload the page.</p>
+    <p>
+        Something to note is that the Rivet theme service provides a function that returns the current dark mode flag
+        (<code>rvtThemeService.getCurrentMode()</code>), which can inform the toggle mechanism as to which mode is
+        already applied.
+    </p>
+    <app-example-snippet>
+        <div class="example-component">
+            <rvt-slide-toggle label="Dark Mode"
+                              [checked]="darkToggle"
+                              class="label-above"
+                              (toggleEvent)="toggleDarkMode($event)">
+            </rvt-slide-toggle>
+        </div>
+        <textarea title="HTML"
+                  class="example-code"
+                  readonly>
+<rvt-slide-toggle label="Dark Mode"
+    [checked]="darkToggle"
+    class="label-above"
+    (toggleEvent)="toggleDarkMode($event)">
+</rvt-slide-toggle>
+    </textarea>
+        <textarea title="TS"
+                  class="example-code"
+                  readonly>
+import { RivetThemingService } from 'rivet-style';
+              
+export class DarkModeComponent {
+    setDarkMode: any;
+    public darkToggle: boolean;
+
+    constructor(public rvtThemeService: RivetThemingService) {
+        this.setDarkMode = rvtThemeService.setDarkMode;
+        this.darkToggle = rvtThemeService.getCurrentMode();
+    }
+
+    toggleDarkMode(e: boolean): void {
+        this.setDarkMode(e);
+    }
+}
+
+</textarea>
+    </app-example-snippet>
+</section>

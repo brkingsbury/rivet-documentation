@@ -1,0 +1,123 @@
+<main class="spacing">
+    <header class="page-header">
+        <h1>Spacing</h1>
+    </header>
+    <section class="content-container">
+        <p>
+            Spacing is defined through reusable CSS variables to help narrow down the dimensions we
+            use for spacing, thereby speeding up the design review process.
+        </p>
+        <header>
+            <h2>Spacing variables</h2>
+        </header>
+        <section>
+            <h3>Implementation</h3>
+            <p>To use spacing variables, set the margin/padding of a component or element to one of
+                the variables. In order to reference the variables, make sure to use <code>var( x );</code> with 'x'
+                being one of the variables listed below. <br />Example scss:
+                <code>.container &#123; margin-bottom: var(--rvt-spacing-lg); &#125;</code>
+            </p>
+        </section>
+
+        <section>
+            <table class="mat-table">
+                <tr class="mat-header-row">
+                    <th class="mat-header-cell">Size</th>
+                    <th class="mat-header-cell">Variable</th>
+                    <th class="mat-header-cell">Default Value</th>
+                    <th class="mat-header-cell">Example</th>
+                </tr>
+
+                <tr class="mat-row"
+                    *ngFor="let v of spacing.spaceVars">
+                    <td class="mat-cell">{{v.name}}</td>
+                    <td class="mat-cell">
+                        <code>{{v.var}}</code>
+                    </td>
+                    <td class="mat-cell">{{v.px}}</td>
+                    <td class="mat-cell">
+                        <div class="example {{v.name}}"></div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </section>
+    <section>
+        <header>
+            <h2>Spacing classes</h2>
+        </header>
+        <p>Rivet also generates spacing classes to apply directly to components and elements to quickly add margins or
+            padding.</p>
+        <h3>Implementation</h3>
+        <p>To use the classes, use the prefixes listed below (example <code>mt</code>) for your desired outcome, then add a hyphen <code> -</code>
+            followed by the spacing size you need (example <code>xxl</code>). These values are listed in the table
+            above.<br />
+            Example HTML: <code>class="mt-xxl"</code></p>
+
+        <h3 class="mt-xl">Margins</h3>
+        <h4 class="mt-lg">One side</h4>
+        <ul class="mt-xxs">
+            <li><code>mt</code>: margin-top</li>
+            <li><code>mr</code>: margin-right</li>
+            <li><code>mb</code>: margin-bottom</li>
+            <li><code>ml</code>: margin-left</li>
+        </ul>
+        <div class="example-classes rvt-card">
+            <div class="spacing-box mt-lg">.mt-lg</div>
+            <div class="spacing-box mr-lg">.mr-lg</div>
+            <div class="spacing-box mb-lg">.mb-lg</div>
+            <div class="spacing-box ml-lg">.ml-lg</div>
+        </div>
+
+        <h4 class="mt-lg">Two sides (along axis)</h4>
+        <ul class="mt-xxs">
+            <li><code>mx</code>: margin-left + margin-right (x-axis)</li>
+            <li><code>my</code>: margin-top + margin-bottom (y-axis)</li>
+        </ul>
+        <div class="example-classes rvt-card">
+            <div class="spacing-box mx-lg">.mx-lg</div>
+            <div class="spacing-box my-lg">.my-lg</div>
+        </div>
+
+        <h4 class="mt-lg">All four sides</h4>
+        <ul class="mt-xxs">
+            <li><code>m</code>: margin</li>
+        </ul>
+        <div class="example-classes rvt-card">
+            <div class="spacing-box m-lg">.m-lg</div>
+        </div>
+
+        <h3 class="mt-xl">Padding</h3>
+        <h4 class="mt-lg">One side</h4>
+        <ul class="mt-xxs">
+            <li><code>pt</code>: padding-top</li>
+            <li><code>pr</code>: padding-right</li>
+            <li><code>pb</code>: padding-bottom</li>
+            <li><code>pl</code>: padding-left</li>
+        </ul>
+        <div class="example-classes rvt-card">
+            <div class="spacing-box pt-lg">.pt-lg</div>
+            <div class="spacing-box pr-lg">.pr-lg</div>
+            <div class="spacing-box pb-lg">.pb-lg</div>
+            <div class="spacing-box pl-lg">.pl-lg</div>
+        </div>
+
+        <h4 class="mt-lg">Two sides (along axis)</h4>
+        <ul class="mt-xxs">
+            <li><code>px</code>: padding-left + padding-right (x-axis)</li>
+            <li><code>py</code>: padding-top + padding-bottom (y-axis)</li>
+        </ul>
+        <div class="example-classes rvt-card">
+            <div class="spacing-box px-lg">.px-lg</div>
+            <div class="spacing-box py-lg">.py-lg</div>
+        </div>
+
+        <h4 class="mt-lg">All four sides</h4>
+        <ul class="mt-xxs">
+            <li><code>p</code>: padding</li>
+        </ul>
+        <div class="example-classes rvt-card">
+            <div class="spacing-box p-lg">.p-lg</div>
+        </div>
+    </section>
+</main>

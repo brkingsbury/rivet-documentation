@@ -1,0 +1,56 @@
+@import '../../styles.scss';
+@import '../app.component.scss';
+
+.resources a {
+    display: block;
+    margin-bottom: var(--rvt-spacing-sm);
+}
+
+img.json {
+    margin-top: var(--rvt-spacing-xs);
+    height: 350px;
+    width: auto;
+}
+
+.sketch-tile {
+    margin: var(--rvt-spacing-sm);
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin-left: var(--rvt-spacing-md);
+    }
+}
+
+.component-img {
+    width: 800px;
+}
+
+.update-version {
+
+    h2 + p {
+        margin-bottom: var(--rvt-spacing-xl);
+    }
+
+    section {
+        margin-bottom: var(--rvt-spacing-xl);
+
+        h3 {
+            margin-bottom: var(--rvt-spacing-xs);
+        }
+
+        h4 {
+            margin-top: var(--rvt-spacing-md);
+            margin-bottom: var(--rvt-spacing-xs);
+        }
+
+        &:last-of-type {
+            margin-bottom: var(--rvt-spacing-xxxl);
+        }
+    }
+
+}

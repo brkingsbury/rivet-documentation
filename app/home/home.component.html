@@ -1,0 +1,54 @@
+<section class="overview">
+    <h1>Overview</h1>
+    <p>The Rivet Design System is a collection of standardized components and visual styles (icons, colors, typography).
+        Built in collaboration with our development and design teams, Advicent can now quickly create beautiful, simple,
+        and consistent user experiences across all our products.</p>
+</section>
+
+<section class="mission">
+    <h2>Rivet mission statement</h2>
+    <p>Rivet's mission is to provide helpful, high quality, and cohesive resources to ensure delightful user experiences</p>
+</section>
+
+<section class="values">
+    <h2>Rivet values</h2>
+    <section>
+        <h3>Deliver high quality components and clearly defined styles:</h3>
+        <p>Creating great experiences starts with reusable components and styles. Through iteration, testing, and
+            review, Rivet will maintain a high standard for usability across our products.</p>
+    </section>
+
+    <section>
+        <h3>Maintain transparent and conistent documentation:</h3>
+        <p>Documentation will clearly communicate the standards of the design system. As the source of truth, Rivet will
+            be accessible to our product teams.</p>
+    </section>
+
+    <section>
+        <h3>Increase designer and developer impact:</h3>
+        <p>A modular approach to interface design allows designers and developers to quickly implement and customize
+            Rivet’s standards. More focus can be allocated to the unique challenges of each project.</p>
+    </section>
+
+    <section>
+        <h3>Drive contribution through collaboration:</h3>
+        <p>Working together leverages our diverse skillsets to strengthen the design library. We rely on contributions
+            from across the organization to make sure Rivet is living and relevant.</p>
+    </section>
+</section>
+<section class="version">
+    <h2>What's new</h2>
+    <div class="version-tile">
+        <h3>{{ version[0].version }}
+            <span>( {{ version[0].date | date }} )</span>
+        </h3>
+        <p><strong>{{ version[0].note }}</strong></p>
+        <ul *ngFor="let update of version[0].updates">
+            {{ update.category }}
+            <li *ngFor="let bullet of update.bullets">{{ bullet }}</li>
+        </ul>
+    </div>
+</section>
+
+<img src="../../assets/RivetMotionGraphic.gif"
+     style="max-width: 100%;">

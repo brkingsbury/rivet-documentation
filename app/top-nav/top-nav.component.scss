@@ -1,0 +1,128 @@
+:host {
+    display: block;
+    min-height: 70px;
+    background: var(--rvt-color-primary-dark);
+    background-size: 110% auto;
+    transition: height 400ms ease;
+    overflow: hidden;
+    position: fixed;
+    width:100%;
+    z-index: 1000;
+    top: 0;
+}
+
+#TopHeader {
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    top: 0;
+    left: 0;
+    width: calc(100% - 150px);
+    z-index: 100;
+    height: 70px;
+    padding: 0 75px;
+    transition: padding 400ms ease;
+    pointer-events: none;
+    a.logo {
+        pointer-events: all;
+        position: absolute;
+        left: 75px;
+        pointer-events: all;
+
+        img {
+            height: 35px;
+        }
+    }
+
+    #HeaderLinks {
+        pointer-events: all;
+        z-index: 1;
+        pointer-events: all;
+
+        button {
+            display: inline-block;
+            margin-left: var(--rvt-spacing-xl);
+            &.rvt-btn-primary.inverse.light-only {
+                background-color: var(--doc-light-only-inverse-bg);
+                color: var(--doc-light-only-inverse-txt);
+            }
+        }
+    }
+
+    &.home:not(.collapse) {
+        padding-top: var(--rvt-spacing-lg);
+    }
+}
+
+
+#HeroImage {
+    pointer-events: none;
+    z-index: 1;
+    padding: 0 var(--rvt-spacing-xxl);
+    opacity: 0;
+    height: 0;
+    transition-property: height, padding, opacity;
+    transition-duration: 400ms;
+    color: var(--rvt-color-text-contrast);
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    * {
+        color: var(--rvt-color-text-contrast);
+    }
+
+    .logo {
+        height: 120px;
+        width: auto;
+        max-width: 100%;
+        margin-top: 100px;
+        transition: opacity 400ms;
+        &.collapse {
+            opacity: 0;
+        }
+    }
+
+    p.mission {
+        margin: 0 auto;
+        margin: var(--rvt-spacing-xl) 0;
+        font-size: 20px;
+        max-width: 450px;
+        transition: opacity 400ms;
+        &.collapse {
+            opacity: 0;
+        }
+    }
+
+    a.version {
+        font-weight: 600;
+        pointer-events: visible;
+            font-size: 18px;
+            text-decoration: none;
+            pointer-events: all;
+    }
+    &:not(.home) {
+        margin-top: 0;
+        transition-property: height, padding, opacity, margin;
+    }
+    &.home {
+        height: 650px;
+        opacity: 1;
+        &.collapse {
+            opacity: 0;
+        }
+    }
+}
+
+object, img.dark-bg {
+    position: absolute;
+    top: 0;
+    min-height: 650px;
+    min-width: 1920px;
+    width: 100%;
+}

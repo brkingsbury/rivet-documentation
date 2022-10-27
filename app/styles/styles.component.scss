@@ -1,0 +1,321 @@
+@import '../../styles.scss';
+
+table.mat-table {
+    background: none;
+}
+
+table.mat-table tr {
+    &.mat-header-row th.mat-header-cell {
+        text-align: left;
+    }
+
+    &.mat-row td.mat-cell {
+        padding: 10px 0;
+    }
+}
+
+button.toggle-btns {
+    i {
+        vertical-align: middle;
+        margin-bottom: 2px;
+    }
+
+    &.selected {
+        background: var(--rvt-color-neutral-6-alpha-10);
+    }
+}
+
+.color-swatches {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    h2 {
+        flex-basis: 100%;
+        margin-top: var(--rvt-spacing-xl);
+        margin-bottom: var(--rvt-spacing-md);
+    }
+
+    .swatch {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 250px;
+        width: 300px;
+        border-radius: var(--border-radius);
+        margin-bottom: var(--rvt-spacing-lg);
+
+        .swatch-info {
+            background: var(--rvt-color-neutral-1);
+            padding: 5px 15px;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+            p {
+                line-height: 1.6;
+                margin-bottom: 0;
+            }
+        }
+
+        &.text {
+            position: relative;
+
+            &:nth-of-type(2) .aa {
+                background-color: var(--rvt-color-primary-dark);
+            }
+
+            .aa {
+                position: absolute;
+                top: 0;
+                width: calc(100% - 30px);
+                font-size: var(--rvt-font-display-1);
+                padding: 15px;
+                border-radius: var(--border-radius) var(--border-radius) 0 0;
+            }
+        }
+    }
+}
+
+.color-container {
+    border-collapse: collapse;
+    margin: 30px 0 45px 0;
+
+    .swatch {
+        width: fit-content;
+    }
+
+    th.mat-header-cell {
+        width: fit-content;
+    }
+
+    code {
+        background: none;
+    }
+
+    .table-header {
+        white-space: nowrap;
+        height: 45px !important;
+    }
+
+    .circle {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+
+        &.white {
+            background-color: var(--rvt-color-bg);
+            border: 1px solid var(--rvt-color-neutral-5);
+        }
+    }
+
+    tr .ref {
+        padding-right: 30px;
+    }
+
+    td span {
+        color: var(--rvt-color-neutral-5);
+    }
+}
+
+.info {
+    padding: 30px;
+
+    .section {
+        position: relative;
+        text-align: center;
+        margin: 15px;
+
+        h6 {
+            text-align: left;
+            margin: 20px 0 5px 0;
+        }
+
+        .rvt-icon-pdf {
+            margin-left: 10px;
+        }
+
+        .icon-layout {
+            span {
+                font-size: 24px;
+                margin: 0 10px;
+            }
+        }
+    }
+}
+
+.persona {
+    h2 {
+        color: var(--doc-accent-text);
+    }
+
+    h3 {
+        font-weight: 600;
+    }
+
+    h4 {
+        color: var(--doc-accent-text);
+        font-size: 24px;
+        margin: 20px 0 10px;
+    }
+
+    blockquote {
+        color: var(--doc-accent-text);
+        max-width: 900px;
+        font-style: italic;
+        font-size: 18px;
+        line-height: 1.5;
+
+        strong {
+            color: var(--doc-accent-text);
+        }
+    }
+
+    .right {
+        text-align: right;
+    }
+
+    .overview {
+        img {
+            height: 250px;
+            vertical-align: middle;
+        }
+
+        p.side-text {
+            display: inline-flex;
+            max-width: 840px;
+            font-size: 20px;
+            color: var(--doc-accent-text);
+        }
+    }
+
+    .traits {
+        .trait-container {
+            display: flex;
+            margin-bottom: 10px;
+
+            .column {
+                flex-direction: column;
+                flex: 1;
+                max-width: 400px;
+
+                p {
+                    margin-bottom: 10px;
+                    font-style: italic;
+
+                    strong {
+                        color: var(--doc-accent-text);
+                        margin-right: 15px;
+                        font-style: normal;
+                    }
+                }
+            }
+        }
+    }
+
+    section:not(.content-container) {
+        padding-left: 15px;
+
+        header {
+            margin-left: -15px;
+        }
+    }
+
+    .voice {
+        blockquote {
+            color: var(--rvt-color-neutral-6);
+        }
+    }
+
+    .lexicon {
+        figure {
+            margin-bottom: 15px;
+
+            img {
+                height: 150px;
+                vertical-align: middle;
+            }
+
+            .gold {
+                display: inline-block;
+                background-color: var(--rvt-color-accent);
+                height: 150px;
+                width: 200px;
+                vertical-align: middle;
+            }
+
+            figcaption {
+                display: inline-flex;
+                padding: 0 15px;
+                font-size: 16px;
+                line-height: 1.5;
+                max-width: 700px;
+            }
+        }
+
+        .ill-container {
+            margin: 20px 0 0 0;
+
+            img {
+                display: block;
+            }
+        }
+    }
+}
+
+.font-styles {
+    .ex {
+        margin-bottom: 10px;
+        font-size: var(--rvt-font-size-f);
+
+        &.light {
+            font-weight: var(--rvt-font-weight-light);
+        }
+
+        &.regular {
+            font-weight: var(--rvt-font-weight-regular);
+        }
+
+        &.bold {
+            font-weight: var(--rvt-font-weight-bold);
+        }
+
+        code {
+            margin-left: 15px;
+            font-weight: 400;
+        }
+    }
+}
+
+.type-list {
+    span {
+        display: inline-block;
+        margin: 0 30px 0 0;
+        width: 75px;
+        color: var(--rvt-color-neutral-6);
+        font-size: var(--rvt-font-size-f);
+        font-weight: var(--rvt-font-weight-bold);
+    }
+
+    ul {
+        list-style-type: none;
+
+        li {
+            margin: 0;
+        }
+    }
+
+    .example {
+        margin-bottom: 30px;
+        line-height: 1.75;
+
+        p {
+            display: inline-block;
+            margin: 0;
+
+            &.value {
+                width: 75px;
+                margin-right: 15px;
+            }
+        }
+    }
+}

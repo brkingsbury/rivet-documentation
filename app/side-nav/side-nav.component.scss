@@ -1,0 +1,95 @@
+@import '../../styles.scss';
+
+.side-nav {
+    width: 220px;
+    margin: 90px 150px 0 0;
+    background: none;
+    padding: 0 0 50px 0px;
+    color: var(--rvt-color-text);
+    white-space: nowrap;
+
+    * {
+        color: var(--rvt-color-text);
+        font-family: var(--rvt-font-family);
+    }
+
+    .category {
+        margin-bottom: var(--rvt-spacing-lg);
+
+        button.category-header {
+            position: relative;
+            display: inline-block;
+            background: none;
+            border: none;
+            text-align: left;
+            width: 100%;
+            font-weight: var(--rvt-font-weight-bold);
+            font-size: var(--rvt-font-size-f);
+            margin: 0;
+            line-height: 25px;
+            cursor: pointer;
+            text-decoration: none;
+
+            span.rivet-icon-caret-right {
+                position: absolute;
+                right: 0;
+                transition: transform 400ms ease !important;
+
+                &:before {
+                    display: block;
+                    margin-top: 4px;
+                }
+            }
+
+            &:hover,
+            &:focus {
+                color: var(--rvt-color-neutral-6);
+
+                span.rivet-icon-caret-right {
+                    color: var(--rvt-color-neutral-6);
+                }
+
+                outline: none;
+            }
+        }
+
+        .sub-nav-list {
+            display: none;
+            position: relative;
+            margin: var(--rvt-spacing-md) 0 0 0;
+
+            a.list-link {
+                display: block;
+                border-left: 5px solid transparent;
+                padding: 0 0 0 15px;
+                margin: var(--rvt-spacing-xxs) 0;
+                cursor: pointer;
+                text-decoration: none;
+                font-size: var(--rvt-font-size-g);
+                line-height: 1.5;
+
+                &.active {
+                    font-weight: var(--rvt-font-weight-bold);
+                    border-color: var(--rvt-color-accent);
+                }
+
+                &:hover:not(.active),
+                &:focus:not(.active) {
+                    border-color: var(--rvt-color-neutral-3);
+                    border-color: transparent;
+                    background: var(--rvt-color-neutral-1);
+                }
+            }
+        }
+
+        &.expanded {
+            .sub-nav-list {
+                display: block;
+            }
+
+            .category-header span.rivet-icon-caret-right {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}

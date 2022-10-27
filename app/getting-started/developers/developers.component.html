@@ -1,0 +1,167 @@
+<header class="page-header">
+    <h1>Developer Onboarding</h1>
+</header>
+
+<section class="component-container">
+    <header>
+        <h2>Summary</h2>
+    </header>
+    <p>The Rivet Design System is a collection of standardized components and visual styles (icons, colors, typography).
+        Built in collaboration with our development and design teams, Advicent can now quickly create beautiful, simple,
+        and consistent user experiences across all our products. As a developer, you will use this document site to
+        speed up implementation with reusable code snippets and defined UI standards. Check out our <a class="rvt-link"
+           routerLink="/home">Mission and Values</a>
+        to learn more about this effort and see our <a class="rvt-link"
+           routerLink="/changelog/versions">Changelog</a> to stay up to date with the latest releases.
+    </p>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Rivet workflow</h2>
+    </header>
+    <ol>
+        This is an overview of the development process using Rivet:
+        <li>Complete local developer setup on your computer</li>
+        <li>Include Rivet in your build</li>
+        <li>Visit Rivet document site to copy component, variable and mixins</li>
+        <li>Customize component code by referring to Rivet documentation, consulting your development team, or reaching
+            out to the DesignOps team</li>
+        <li>Refine component implementation with code and design reviews</li>
+        <li>Deploy with a pull request</li>
+    </ol>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>What is included</h2>
+    </header>
+    <ul>
+        To make the Rivet Documentation site valuable to your workflow, each UI component and visual style includes the
+        following
+        <li>Name, description, and usage</li>
+        <li>Interactive examples with resuable code snippets</li>
+        <li>Parameters for code customization</li>
+        <li>Design specification documentation for reference</li>
+    </ul>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Implementing Rivet</h2>
+    </header>
+    <p>Within the projects <code>package.json</code> and <code>rivet-style: 'x.x.x'</code> under devDependencies, using
+        the
+        version of Rivet you want to import</p>
+    <figure>
+        <img class="json"
+             src="../../../assets/toolkits/json_example.jpg"
+             alt="example code of package.json within Essentials project" />
+        <figcaption>Example code of package.json within Essentials project</figcaption>
+    </figure>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Using Rivet</h2>
+    </header>
+    <p>Below are examples of how to use components, icons, colors, and typography.</p>
+
+    <h3>Components</h3>
+    <p>There are a variety of components ready to be embedded within projects. Each hosted component comes with documentation explaining how to insert the component as well as different styles and configurations available. To see quick examples of every component, visit the <a class="rvt-link" routerLink="/components">components overview</a> page.</p>
+    <figure>
+        <img class="component-img" src="../../../assets/toolkits/component.jpg" alt="example of a component documentation"/>
+        <figcaption>Dropdown component documentation with the different code sections.</figcaption>
+    </figure>
+
+    <h3>Icons</h3>
+    <p>Icons are built out within the Rivet package into an icon font using uploaded svgs. This font allows for a standard icon that can be scaled and styled easily across products.
+        To view all available icons, and more information on implementation, visit <a class="rvt-link" routerLink="/style/icon">icons</a>.</p> 
+        <figure>
+            <img src="../../../assets/toolkits/icon1.jpg" alt="code of icon within HTML">
+            <figcaption>An example of an icon using HTML</figcaption>
+        </figure>
+
+        <figure>
+            <img src="../../../assets/toolkits/icon2.jpg" alt="code of icon within CSS">
+            <figcaption>An example of an icon using CSS</figcaption>
+        </figure>
+
+    <h3>Colors</h3>
+    <p>Color can be set using defined color variables. We use CSS variables for ease of implementation across products and code styles. For a full list of color variables see <a routerLink="/style/color" class="rvt-link">colors</a>.</p>
+    <figure>
+        <img src="../../../assets/toolkits/color.jpg" alt="code of color variable in use"/>
+        <figcaption>Use of a color variable in code</figcaption>
+    </figure>
+
+    <h3>Typography</h3>
+    <p>Rivet has set variables to use for font styles in order to ensure consistency. For examples and a list of variables check out <a class="rvt-link" routerLink="/style/font">font styles</a>.
+    </p>
+    <figure>
+        <img src="../../../assets/toolkits/font1.jpg" alt="code for using font styles in SCSS"/>
+        <figcaption>You can use mixins to include font styles within SCSS</figcaption>
+    </figure>
+
+    
+    <figure>
+        <img src="../../../assets/toolkits/font2.jpg" alt="code for using font styles in html"/>
+        <figcaption>You can also set the header to the font style class</figcaption>
+    </figure>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Making customizations</h2>
+    </header>
+    <p>If the component options available within a Rivet component are not enough to achieve a given UI, a developer
+        should consult the DesignOps team to determine the best way to move forward. Reach out through
+        <a class="rvt-link"
+           href="https://teams.microsoft.com/l/channel/19%3a081fa8ad2aa941c3a69ca1cbdde5a04e%40thread.skype/DesignOps?groupId=d90dbcfc-30ff-4ee0-a3e0-4ee8ca8068e5&tenantId=f91af43b-8c49-4e9a-9f11-4266967d477a"
+           target="new">Teams</a>.
+    </p>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Contributing</h2>
+    </header>
+    <p>We encourage developer contributions because they make the Rivet Design System relevant, stable, and flexible.
+        See our <a class="rvt-link"
+           routerLink="/getting-started/contribute">contribute</a> page for an overview of the contribution process.</p>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Questions or feedback</h2>
+    </header>
+    <p>For any questions, reach out to the DesignOps team through
+        <a class="rvt-link"
+           href="https://teams.microsoft.com/l/channel/19%3a081fa8ad2aa941c3a69ca1cbdde5a04e%40thread.skype/DesignOps?groupId=d90dbcfc-30ff-4ee0-a3e0-4ee8ca8068e5&tenantId=f91af43b-8c49-4e9a-9f11-4266967d477a"
+           target="new">Teams</a>. Feature requests can be added in
+        <a class="rvt-link"
+           href="https://dev.azure.com/advicent/Naviplan/_backlogs/backlog/DesignOps/Backlog%20items"
+           target="new">Azure</a>.</p>
+</section>
+
+<section class="component-container resources">
+    <header>
+        <h2>Resources</h2>
+    </header>
+    <p>
+        <a class="rvt-link"
+           href="https://material.angular.io/components/categories"
+           target="new">Angular Material</a>
+        <a class="rvt-link"
+           href="https://caniuse.com/"
+           target="new">can I use</a>
+        <a class="rvt-link"
+           href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+           target="new">Guide to flexbox</a>
+        <a class="rvt-link"
+           href="https://accessible-colors.com/"
+           target="new">Color contrast checker</a>
+        <a class="rvt-link"
+           href="https://www.w3.org/TR/WCAG21/"
+           target="new">WCAG guidelines</a>
+    </p>
+</section>

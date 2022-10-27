@@ -1,0 +1,60 @@
+@import '../../styles.scss';
+
+section {
+    margin-bottom: var(--rvt-spacing-xl);
+
+    h2 {
+        margin-bottom: var(--rvt-spacing-md);
+    }
+
+    p {
+        margin: 0;
+    }
+
+    &.mission {
+        margin-bottom: var(--rvt-spacing-xxxl);
+    }
+
+    &.version {
+        h2 {
+            margin: 0;
+        }
+
+        .version-tile {
+            margin-top: var(--rvt-spacing-xl);
+            padding: var(--rvt-spacing-lg);
+            background: var(--rvt-color-neutral-1);
+
+            h3 {
+                display: inline-block;
+                margin-bottom: var(--rvt-spacing-xs);
+            }
+        }
+    }
+    &.overview {
+        margin-bottom: var(--rvt-spacing-xxxl);
+        h1 {
+            margin-bottom: var(--rvt-spacing-lg);
+            padding-bottom: var(--rvt-spacing-md);
+            border-bottom: 2px solid var(--rvt-color-neutral-2);
+        }
+    
+        p {
+            font-size: var(--rvt-font-size-f);
+        }
+
+    }
+    &.values section{
+            margin-bottom: var(--rvt-spacing-xl);
+        
+            h3 {
+                margin-bottom: var(--rvt-spacing-xs);
+            }
+        
+            &:last-of-type {
+                margin-bottom: var(--rvt-spacing-xxxl);
+            }
+
+        
+    }
+}
