@@ -1,0 +1,9 @@
+<ng-content select=".example-component" class="example-component" ngProjectAs="div"></ng-content>
+<div class="example-code-header">
+    <a *ngFor="let tab of tabs" [ngClass]="{'active': activeTab == tab.index}"
+        (click)="showTab(tab.index)">{{tab.name}}</a>
+</div>
+<div #content class="panel-{{activeTab}}">
+    <ng-content select=".example-code" ngProjectAs="textarea">
+    </ng-content>
+</div>

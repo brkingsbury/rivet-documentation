@@ -1,0 +1,132 @@
+<header class="page-header">
+    <h1>Checkbox</h1>
+    <div class="header-icons">
+        <a class="sketch"
+           title="sketch file"
+           href="https://sketch.cloud/s/4xKMZ"
+           target="new">
+            <img src="../../assets/sketch.svg"
+                 alt="sketch icon" />
+        </a>
+        <app-compliance-marker></app-compliance-marker>
+    </div>
+</header>
+
+<section class="component-container">
+    <p>
+        Checkboxes are inputs that allow users to select one or more items from a set.
+    </p>
+    <h3>Use Case</h3>
+    <p>
+        Use Checkboxes when there is more than one item to select from a set. Items found in the set must be
+        related. Consider using a Radio button if the user should select only one option from a set.
+    </p>
+    <h3>Implementation</h3>
+    <app-parameters [inputsConfig]="inputsConfig"
+                    [classesConfig]="classesConfig">
+    </app-parameters>
+</section>
+
+<section class="component-container">
+    <div class="controls">
+        <p>Input states:</p>
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="disCheck"
+                   [checked]="isDisabled"
+                   (change)="isDisabled = !isDisabled; isRo = false; isSmall = false; isAbove = false" />
+            <label for="disCheck">Disable checkbox</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="smCheck"
+                   [checked]="isSmall"
+                   (change)="isSmall = !isSmall; isRo = false; isDisabled = false; isAbove = false" />
+            <label for="smCheck">Small checkbox</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="abCheck"
+                   [checked]="isAbove"
+                   (change)="isAbove = !isAbove; isDisabled = false; isSmall = false; isRo = false" />
+            <label for="abCheck">Label above checkbox</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="roCheck"
+                   [checked]="isRo"
+                   (change)="isRo = !isRo; isDisabled = true; isSmall = false; isAbove = false" />
+            <label for="roCheck">Read-only checkbox</label>
+        </div>
+    </div>
+
+    <app-example-snippet>
+        <div class="example-component">
+            <div class="rvt-checkbox"
+                 [ngClass]="{ 'small-checkbox': isSmall, 'label-above': isAbove }">
+                <input type="checkbox"
+                       id="check1"
+                       [disabled]="isDisabled"
+                       [ngClass]="{ 'read-only': isRo }"
+                       [disabled]="isDisabled"
+                       [checked]="isChecked" />
+                <label for="check1">Label</label>
+            </div>
+        </div>
+
+        <textarea title="HTML"
+                  class="example-code"
+                  readonly
+                  *ngIf="!isDisabled && !isRo && !isAbove && !isSmall">
+<div class="rvt-checkbox">
+    <input type="checkbox" id="check1" [checked]="isChecked" />
+    <label for="check1">Label</label>
+</div>
+    </textarea>
+
+
+        <textarea title="HTML"
+                  class="example-code"
+                  readonly
+                  *ngIf="isAbove">
+<div class="rvt-checkbox label-above">
+    <input type="checkbox" id="check1" [checked]="isChecked" />
+    <label for="check1">Label</label>
+</div>
+    </textarea>
+
+
+        <textarea title="HTML"
+                  class="example-code"
+                  readonly
+                  *ngIf="isDisabled && !isRo">
+<div class="rvt-checkbox">
+    <input type="checkbox" id="check1" [checked]="isChecked" disabled />
+    <label for="check1">Label</label>
+</div>
+    </textarea>
+
+        <textarea title="HTML"
+                  class="example-code"
+                  readonly
+                  *ngIf="isRo">
+<div class="rvt-checkbox">
+    <input type="checkbox" id="check1" class="read-only" [checked]="isChecked" disabled />
+    <label for="check1">Label</label>
+</div>
+    </textarea>
+
+        <textarea title="HTML"
+                  class="example-code"
+                  readonly
+                  *ngIf="isSmall">
+<div class="rvt-checkbox small-checkbox">
+    <input type="checkbox" id="check1" [checked]="isChecked" />
+    <label for="check1">Label</label>
+</div>
+    </textarea>
+    </app-example-snippet>
+</section>

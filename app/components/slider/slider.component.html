@@ -1,0 +1,144 @@
+<header class="page-header">
+    <h1>Slider</h1>
+</header>
+<section class="component-container">
+    <p>
+        Sliders allow users to select a value from a range using drag and drop.
+    </p>
+    <h3>Use Case</h3>
+    <p>
+        Use Sliders to help users select a value from a range between a minimum and maximum value. Labels can be added
+        to
+        each side of the slider for clarity. Sliders can be orientated on a horizontal or vertical axis. Consider using
+        an
+        Input if the value needs to be precise.
+    </p>
+    <h3>Implementation</h3>
+    <app-parameters [inputsConfig]="inputsConfig"
+                    [outputsConfig]="outputsConfig">
+    </app-parameters>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Material Slider - Basic</h2>
+    </header>
+
+    <app-example-snippet>
+        <div class="example-component">
+            <mat-slider></mat-slider>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<mat-slider value="val" min="sliderMin" max="sliderMax"></mat-slider>
+    </textarea>
+    </app-example-snippet>
+</section>
+
+
+<section class="component-container">
+    <header>
+        <h2>Material Slider - Configurations</h2>
+        <h3>Implementation</h3>
+        <p>Sliders currently use the Angular Material slider component and directives as their basis.</p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <section class="example-section">
+                <mat-form-field class="example-margin">
+                    <input matInput
+                           type="number"
+                           placeholder="Value"
+                           [(ngModel)]="value">
+                </mat-form-field>
+                <mat-form-field class="example-margin">
+                    <input matInput
+                           type="number"
+                           placeholder="Min value"
+                           [(ngModel)]="min">
+                </mat-form-field>
+                <mat-form-field class="example-margin">
+                    <input matInput
+                           type="number"
+                           placeholder="Max value"
+                           [(ngModel)]="max">
+                </mat-form-field>
+                <mat-form-field class="example-margin">
+                    <input matInput
+                           type="number"
+                           placeholder="Step size"
+                           [(ngModel)]="step">
+                </mat-form-field>
+            </section>
+
+
+            <section class="example-section">
+
+                <div class="rvt-checkbox">
+                    <input type="checkbox"
+                           class="example-margin"
+                           id="check1"
+                           [checked]="showTicks"
+                           (change)="showTicks = !showTicks" />
+                    <label for="check1">Show ticks (auto interval)</label>
+                </div>
+
+
+            </section>
+
+            <section class="example-section">
+                <div class="rvt-checkbox">
+                    <input type="checkbox"
+                           class="example-margin"
+                           id="check2"
+                           [checked]="thumbLabel"
+                           (change)="thumbLabel = !thumbLabel" />
+                    <label for="check2">Show thumb label</label>
+                </div>
+            </section>
+
+            <section class="example-section">
+                <div class="rvt-checkbox">
+                    <input type="checkbox"
+                           class="example-margin"
+                           id="check3"
+                           [checked]="vertical"
+                           (change)="vertical = !vertical" />
+                    <label for="check3">Vertical</label>
+                </div>
+            </section>
+
+            <section class="example-section">
+
+                <div class="rvt-checkbox">
+                    <input type="checkbox"
+                           class="example-margin"
+                           id="check4"
+                           [checked]="disabled"
+                           (change)="disabled = !disabled" />
+                    <label for="check4">Disabled</label>
+                </div>
+            </section>
+
+            <mat-slider class="example-margin"
+                        [disabled]="disabled"
+                        [max]="max"
+                        [min]="min"
+                        [step]="step"
+                        [thumbLabel]="thumbLabel"
+                        [tickInterval]="tickInterval"
+                        [(ngModel)]="value"
+                        [vertical]="vertical">
+            </mat-slider>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<mat-slider class="example-margin" [disabled]="disabled" [max]="max" [min]="min" [step]="step"
+[thumbLabel]="thumbLabel" [tickInterval]="tickInterval" [(ngModel)]="value" [vertical]="vertical">
+</mat-slider>
+    </textarea>
+    </app-example-snippet>
+</section>

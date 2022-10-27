@@ -1,0 +1,386 @@
+<header class="page-header">
+    <h1>Buttons</h1>
+    <div class="header-icons">
+        <a class="sketch"
+           title="sketch file"
+           href="https://sketch.cloud/s/vK2P1?settings=vK2P1"
+           target="new">
+            <img src="../../assets/sketch.svg"
+                 alt="sketch icon" />
+        </a>
+        <app-compliance-marker></app-compliance-marker>
+    </div>
+</header>
+
+<section class="component-container">
+    <p>
+        Buttons are clickable elements that emphasize actions users can take on the page.
+    </p>
+    <h3>Use Case</h3>
+    <p>
+        Use Buttons in dialogs, forms, settings, and cards. Buttons should always follow this hierarchy:<br/> Primary > Secondary > Tertiary > Text. 
+    </p>
+
+    <h3>Implementation</h3>
+    <app-parameters [classesConfig]="classesConfig">
+    </app-parameters>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Primary Buttons</h2>
+        <h3>Use Case</h3>
+        <p>
+            Use Primary Buttons to give actions high emphasis. Display only 1-3 Primary Buttons to effectively direct
+            attention to primary actions on a page.
+        </p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component"
+             [class.inverse]="isInverse">
+            <rvt-slide-toggle class="inverse-toggle"
+                              label="Inverse"
+                              [checked]="isInverse"
+                              (toggleEvent)="isInverse = !isInverse">
+            </rvt-slide-toggle>
+            <button class="rvt-btn-primary"
+                    [class.inverse]="isInverse">Primary</button>
+            <button class="rvt-btn-primary"
+                    disabled>Primary - Disabled</button>
+            <button class="rvt-btn-primary-lg"
+                    [class.inverse]="isInverse">Primary - Large</button>
+            <button class="rvt-btn-primary-lg"
+                    disabled>Primary - Large - Disabled</button>
+        </div>
+
+        <textarea *ngIf="!isInverse"
+                  id="example-code-primary"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-primary">
+    Primary
+</button>
+
+<button class="rvt-btn-primary-lg">
+    Primary - Large
+</button>
+        </textarea>
+
+        <textarea *ngIf="isInverse"
+                  id="example-code-primary"
+                  class="example-code"
+                  readonly>
+<button class="rvt-btn-primary inverse">
+    Primary
+</button>
+
+<button class="rvt-btn-primary-lg inverse">
+    Primary - Large
+</button>
+        </textarea>
+    </app-example-snippet>
+</section>
+
+<!--  END EXAMPLE  -->
+
+<section class="component-container">
+    <header>
+        <h2>Secondary Buttons</h2>
+        <h3>Use Case</h3>
+        <p>
+            Use Secondary Buttons to give actions medium emphasis. Use Secondary Buttons for important actions that are
+            not considered primary actions.
+        </p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component"
+             [class.inverse]="isInverse2">
+
+            <rvt-slide-toggle class="inverse-toggle"
+                              label="Inverse"
+                              [checked]="isInverse2"
+                              (toggleEvent)="isInverse2 = !isInverse2">
+            </rvt-slide-toggle>
+            <button class="rvt-btn-secondary"
+                    [class.inverse]="isInverse2">Secondary</button>
+            <button class="rvt-btn-secondary"
+                    disabled>Secondary - Disabled</button>
+        </div>
+
+        <textarea *ngIf="!isInverse2"
+                  id="example-code-secondary"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-secondary">
+    Secondary
+</button>
+        </textarea>
+
+        <textarea *ngIf="isInverse2"
+                  id="example-code-secondary"
+                  class="example-code"
+                  readonly>
+<button class="rvt-btn-secondary inverse">
+Secondary
+</button>
+  </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Tertiary Buttons</h2>
+        <h3>Use Case</h3>
+        <p>
+            Use Tertiary Buttons to give actions lower emphasis. Use Tertiary buttons for actions that need to be differentiated from static text.
+        </p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <button class="rvt-btn-tertiary"
+                    >Tertiary</button>
+            <button class="rvt-btn-tertiary"
+                    disabled>Tertiary - Disabled</button>
+        </div>
+
+        <textarea id="example-code-tertiary"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-tertiary">
+    Tertiary
+</button>
+        </textarea>
+
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Text Buttons</h2>
+        <h3>Use Case</h3>
+        <p>
+            Use Text Buttons to give actions low emphasis. Text Buttons are less noticeable and commonly found in
+            dialogs, cards, or next to higher emphasis buttons.
+        </p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component"
+             [class.inverse]="isInverse3">
+
+            <rvt-slide-toggle class="inverse-toggle"
+                              label="Inverse"
+                              [checked]="isInverse3"
+                              (toggleEvent)="isInverse3 = !isInverse3">
+            </rvt-slide-toggle>
+            <button class="rvt-btn-text"
+                    [class.inverse]="isInverse3">Text</button>
+            <button class="rvt-btn-text"
+                    disabled>Text - Disabled</button>
+        </div>
+
+        <textarea *ngIf="!isInverse3"
+                  id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-text">
+    Text
+</button>   
+        </textarea>
+
+        <textarea *ngIf="isInverse3"
+                  id="example-code-text"
+                  class="example-code"
+                  readonly>
+<button class="rvt-btn-text inverse">
+    Text
+</button>   
+        </textarea>
+
+    </app-example-snippet>
+</section>
+<!--  END EXAMPLE  -->
+
+<section class="component-container">
+    <header>
+        <h2>Icon Buttons</h2>
+        <h3>Use Case</h3>
+        <p>
+            Use Icon Buttons for one-click actions that can be widely recognized by just the icon.
+        </p>
+    </header>
+    <h3>Implementation</h3>
+    <p>
+        When using icons within buttons, it is required to add <code>aria-label="icon-type"</code> for screen
+        readers to
+        understand the button does.
+    </p>
+    <app-example-snippet>
+        <div class="example-component"
+             [class.inverse]="isInverse4">
+
+            <rvt-slide-toggle class="inverse-toggle"
+                              label="Inverse"
+                              [checked]="isInverse4"
+                              (toggleEvent)="isInverse4 = !isInverse4">
+            </rvt-slide-toggle>
+            <button class="rvt-btn-icon"
+                    [class.inverse]="isInverse4"
+                    aria-label="Add">
+                <span class="rivet-icon-add"
+                      alt="add"></span>
+            </button>
+
+            <button class="rvt-btn-icon"
+                    [class.inverse]="isInverse4"
+                    aria-label="Add"
+                    disabled>
+                <span class="rivet-icon-add"
+                      alt="add"></span>
+            </button>
+        </div>
+
+        <textarea *ngIf="!isInverse4"
+                  id="example-code-icon"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-icon">
+    <span class="rivet-icon-add" aria-label="add"></span>
+</button>
+    </textarea>
+
+        <textarea *ngIf="isInverse4"
+                  id="example-code-icon"
+                  class="example-code"
+                  readonly>
+<button class="rvt-btn-icon inverse">
+    <span class="rivet-icon-add" aria-label="add"></span>
+</button>
+    </textarea>
+
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Button with Icon</h2>
+        <h3>Use Case</h3>
+        <p>
+            Use Buttons with Icons to emphasize one-click actions with familiar icons.
+        </p>
+    </header>
+    <h3>Implementation</h3>
+    <p>
+        When using icons within buttons, it is required to add <code>aria-label="icon-type"</code> for screen
+        readers to
+        understand the button does.
+    </p>
+
+    <app-example-snippet>
+        <div class="example-component"
+             [class.inverse]="isInverse5">
+
+            <rvt-slide-toggle class="inverse-toggle"
+                              label="Inverse"
+                              [checked]="isInverse5"
+                              (toggleEvent)="isInverse5 = !isInverse5">
+            </rvt-slide-toggle>
+            <button class="rvt-btn-icon"
+                    [class.inverse]="isInverse5">
+                <span class="rivet-icon-add"></span>
+                <span>Add</span>
+            </button>
+
+            <button class="rvt-btn-icon"
+                    disabled>
+                <span class="rivet-icon-add"></span>
+                <span>Add</span>
+            </button>
+        </div>
+
+        <textarea *ngIf="!isInverse5"
+                  id="example-code-with-icon"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-icon">
+    <span class="rivet-icon-add" aria-label="add"></span>
+    <span>Add</span>
+</button>
+        </textarea>
+
+        <textarea *ngIf="isInverse5"
+                  id="example-code-with-icon"
+                  class="example-code"
+                  readonly>
+<button class="rvt-btn-icon inverse">
+    <span class="rivet-icon-add" aria-label="add"></span>
+    <span>Add</span>
+</button>
+        </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Loading Buttons</h2>
+        <h3>Use Case</h3>
+        <p>
+            Use Loading Buttons when a button initiates an action and takes over 1 second to confirm the action with
+            another form of feedback.
+            For more information, see <a class="rvt-link"
+               routerLink="/components/loading">loading</a>
+        </p>
+    </header>
+    <h3>Implementation</h3>
+    <p>
+        If the button does not contain text saying "loading" and only contains an icon, add
+        <code>aria-label="loading"</code> for screen reader support.
+    </p>
+
+    <app-example-snippet>
+        <div class="example-component">
+            <button class="rvt-btn-primary loading"
+                    aria-label="Loading"
+                    disabled>
+                Loading
+                <mat-spinner></mat-spinner>
+            </button>
+
+            <button class="rvt-btn-secondary loading"
+                    aria-label="Loading"
+                    disabled>
+                Loading
+                <mat-spinner></mat-spinner>
+            </button>
+
+            <button class="rvt-btn-text loading"
+                    aria-label="Loading"
+                    disabled>
+                Loading
+                <mat-spinner></mat-spinner>
+            </button>
+
+            <button class="rvt-btn-icon loading"
+                    aria-label="Loading"
+                    disabled>
+                <span class="rivet-icon-add"></span>
+                <mat-spinner></mat-spinner>
+            </button>
+        </div>
+
+        <textarea id="example-code-loading"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-primary loading" aria-label="Loading" disabled>
+    Loading
+    <mat-spinner *ngIf="loading"></mat-spinner>
+</button>
+    </textarea>
+    </app-example-snippet>
+</section>

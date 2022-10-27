@@ -1,0 +1,115 @@
+<header class="page-header">
+    <h1>Compatibility</h1>
+</header>
+<section class="component-container">
+    <p>
+        This catalogues the various compatibility considerations that arise with Rivet and with
+        branding configurations within Advicent's software suite.
+    </p>
+</section>
+
+<section class="component-container">
+    <h2>NaviPlan Premium</h2>
+    <h3>Version</h3>
+    <p>
+        Rivet is not utilized in NaviPlan Premium, but v3 was used in the 2019 visual update to inform the visual design
+        of
+        the software.
+    </p>
+    <h3>Branding</h3>
+    <p>
+        NaviPlan follows its own branding variable standard. Documentation for branding capabilities can be found here:
+        <a class="rvt-link"
+           href="https://advicent.atlassian.net/wiki/spaces/NP/pages/103612824/NaviPlan+Branding+Documents">NaviPlan
+            Branding Documents</a>
+    </p>
+    <button class="rvt-btn-primary"
+            (click)="openPremiumDialog()">See All Premium Variables</button>
+</section>
+
+<section class="component-container">
+    <h2>NaviPlan Essentials</h2>
+    <h3>Version</h3>
+    <p>
+        NaviPlan Essentials has been proven to be compatible with Rivet v4, and will be closely tied to Rivet
+        development for the forseeable future.
+    </p>
+    <h3>Branding</h3>
+    <p>
+        NaviPlan Essentials follows the latest <a class="rvt-link"
+           routerLink="/style/color">branding variable standards</a> as
+        established in Rivet v4,
+        and can be color-customized through the Auth Server’s ability to apply <a class="rvt-link"
+           href="https://dev.azure.com/advicent/Naviplan/_git/Services.AuthServer?path=%2Fdocs%2Fbranding.md&_a=preview">enterprise
+            branding packages</a> on login.
+    </p>
+    <button class="rvt-btn-primary"
+            (click)="openRivet4Dialog()">See All Rivet v4 Variables</button>
+</section>
+
+<section class="component-container">
+    <h2>Guided Retirement</h2>
+    <h3>Version</h3>
+    <p>
+        Guided Retirement has been proven to be compatible with Rivet v4. It is recommended that it remain on Rivet v4
+        unless a major update is performed (e.g. an Angular version update) that would require a Rivet update. It is
+        also possible that future patch updates be applied if bugs caused by Rivet are found.
+    </p>
+    <h3>Branding</h3>
+    <p>
+        Guided Retirement follows the <a class="rvt-link"
+           routerLink="/style/color">branding variable standards</a> as
+        established in Rivet v4,
+        and can be color-customized through the Auth Server’s ability to apply <a class="rvt-link"
+           href="https://dev.azure.com/advicent/Naviplan/_git/Services.AuthServer?path=%2Fdocs%2Fbranding.md&_a=preview">enterprise
+            branding packages</a> on login.
+    </p>
+    <button class="rvt-btn-primary"
+            (click)="openRivet4Dialog()">See All Rivet v4 Variables</button>
+</section>
+
+<section class="component-container">
+    <h2>Admin</h2>
+    <h3>Version</h3>
+    <p>
+        Admin has been proven to be compatible with Rivet v4. It is recommended that it remain on Rivet v4 unless a
+        major update is performed (e.g. an Angular version update) that would require a Rivet update. It is also
+        possible that future patch updates be applied if bugs caused by Rivet are found.
+    </p>
+    <h3>Branding</h3>
+    <p>
+        Admin follows the <a class="rvt-link"
+           routerLink="/style/color">branding variable standards</a> as
+        established in Rivet v4,
+        and can be color-customized through the Auth Server’s ability to apply <a class="rvt-link"
+           href="https://dev.azure.com/advicent/Naviplan/_git/Services.AuthServer?path=%2Fdocs%2Fbranding.md&_a=preview">enterprise
+            branding packages</a> on login.
+    </p>
+    <button class="rvt-btn-primary"
+            (click)="openRivet4Dialog()">See All Rivet v4 Variables</button>
+</section>
+
+<section class="component-container">
+    <h2>Client Portal</h2>
+    <h3>Version</h3>
+    <p>
+        Client Portal was built using an the unofficial ‘v2’ of Rivet that was built as part of the Client Portal
+        software. It is not possible to upgrade the version of Rivet without a significant re-design of the UI and a
+        significant upgrade from AngularJS.
+    </p>
+    <h3>Branding</h3>
+    <p>
+        Client Portal uses its own set of branding variables seperate from Rivet. Follow <a class="rvt-link"
+           href="https://advicent.atlassian.net/wiki/spaces/NPDEV2/pages/104913024/How+To+Client+Portal+Branding#HowTo:ClientPortalBranding-UIbranding-Colors">this
+            documentation</a> for instructions on how to override Client Portal branding.
+    </p>
+    <button class="rvt-btn-primary"
+            (click)="openPortalDialog()">See All Client Portal Variables</button>
+</section>
+
+<section class="component-container">
+    <h2>Profiles</h2>
+    <p>
+        There is no compatibility between Rivet and Profiles, and there is no future plan to utilize Rivet in Profiles
+    </p>
+</section>

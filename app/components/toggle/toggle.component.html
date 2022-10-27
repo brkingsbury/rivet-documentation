@@ -1,0 +1,116 @@
+<header class="page-header">
+    <h1>Slide Toggle</h1>
+</header>
+
+<section class="component-container">
+    <p>Slide Toggles are controls that immediately switch between two states.</p>
+    <h3>Use case</h3>
+    <p>Use Slide Toggles to immediately switch between off and on states for sections, pages, or settings. Consider
+        using <a class="rvt-link" routerLink="/components/radio">Radio buttons</a> or <a class="rvt-link"
+            routerLink="/components/checkbox">checkboxes</a> if there is more than one way to control a state.</p>
+
+    <h3>Implementation</h3>
+    <app-parameters [inputsConfig]="inputsConfig" [outputsConfig]="outputsConfig" [classesConfig]="classesConfig">
+    </app-parameters>
+    <p>
+        <button class="rvt-btn-primary" (click)="toggle()">Toggle Examples value</button>
+        <!-- <button class="rvt-btn-primary" (click)="disable()">Toggle Disabled value</button> -->
+        <!-- <button class="rvt-btn-primary" (click)="isRo = !isRO; disable()">Toggle read-only value</button> -->
+    </p>
+</section>
+
+<section class="component-container">
+    <div class="controls">
+        <p>Input states:</p>
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="disCheck"
+                   [checked]="isDisabled"
+                   (change)="isDisabled = !isDisabled; disable()" />
+            <label for="disCheck">Disable toggle</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="roCheck"
+                   [checked]="isRo"
+                   (change)="isRo = !isRo; isDisabled = true" />
+            <label for="roCheck">Read-only toggle</label>
+        </div> 
+    </div>
+    <h2>FormControl version</h2>
+    <p>Directly binds the FormControl element to <code>control</code>, which handles the toggle value and the </p>
+
+
+
+    <app-example-snippet>
+        <div class="example-component">
+            <rvt-slide-toggle label="Label String" [control]="checkbox" [readOnly]="isRo">
+            </rvt-slide-toggle>
+        </div>
+        <textarea class="example-code" title="HTML" readonly>
+<rvt-slide-toggle label="Label String" [control]="checkbox">
+</rvt-slide-toggle>
+    </textarea>
+        <textarea class="example-code" title="Typescript" readonly>
+checkbox = new FormControl('');
+
+public toggle() {
+  this.checkbox.setValue(!this.checkbox.value);
+}
+
+public disable() {
+  this.checkbox.disabled ? this.checkbox.enable() : this.checkbox.disable();
+}
+    </textarea>
+    </app-example-snippet>
+</section>
+
+
+<section class="component-container">
+    <h2>Direct Binding version</h2>
+    <p>
+        Binds individual attributes to <code>rvt-slide-toggle</code> to control behavior in a more primitave way.
+    </p>
+    <app-example-snippet>
+        <div class="example-component">
+            <rvt-slide-toggle label="Label String" [readOnly]="isRo" [checked]="mockFlag" [disabled]="isDisabled"
+                (toggleEvent)="mockFlag=$event">
+            </rvt-slide-toggle>
+        </div>
+        <textarea class="example-code" title="HTML">
+<rvt-slide-toggle label="Label String" [checked]="mockFlag" [disabled]="mockDisable"
+  (toggleEvent)="mockFlag=$event">
+</rvt-slide-toggle>
+    </textarea>
+        <textarea class="example-code" readonly title="Typescript">
+public mockFlag = false;
+public mockDisable = false;
+
+public toggle() {
+  this.mockFlag = !this.mockFlag;
+}
+
+public disable() {
+  this.mockDisable = !this.mockDisable;
+}  
+      </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <h2>Label above</h2>
+    <p>
+        Sets the input label above the input element for specific applications, e.g. inline with input rows.
+    </p>
+    <app-example-snippet>
+        <div class="example-component">
+            <rvt-slide-toggle label="Label String" [control]="checkbox" class="label-above">
+            </rvt-slide-toggle>
+        </div>
+        <textarea class="example-code" readonly title="HTML">
+<rvt-slide-toggle label="Label String" [control]="checkbox" class="label-above">
+</rvt-slide-toggle>
+    </textarea>
+    </app-example-snippet>
+</section>

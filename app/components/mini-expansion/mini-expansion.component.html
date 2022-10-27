@@ -1,0 +1,126 @@
+<header class="page-header">
+    <h1>Mini Expansion Panel</h1>
+    <div class="header-icons">
+        <!-- <a class="rivet-icon-pdf" title="spec sheet" href=""
+        target="new"></a> -->
+        <!-- <a class="sketch" title="sketch file" href="" target="new">
+            <img src="../../assets/sketch.svg"/>
+        </a> -->
+        <!-- <app-compliance-marker></app-compliance-marker> -->
+    </div>
+</header>
+
+<section class="component-container">
+    <header>
+        <p>
+            Mini Expansion Panels are menus that toggle the visibility of sub-menu items.
+        </p>
+        <app-parameters [inputsConfig]="inputsConfig">
+        </app-parameters>
+    </header>
+</section>
+<section class="component-container">
+    <h2>Single Mini Expansion Panel</h2>
+    <h3>Implementation</h3>
+    <p>
+        Click listener toggle is handled internally. Any content can be placed inside rivet-mini-expansion-head and
+        rivet-mini-expansion-body, as long as the parent wrapper contains those attributes (used to transclude
+        content).
+    </p>
+    <p>
+        setting <code>panelOpen</code> to true will open the expansion panel by default
+    </p>
+    <app-example-snippet>
+        <div class="example-component">
+            <advicent-rivet-mini-expansion-panel panelOpen="true">
+                <div rivet-mini-expansion-head>Header Component</div>
+                <div rivet-mini-expansion-body>Body Component that will contain all the content for stuff</div>
+            </advicent-rivet-mini-expansion-panel>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<advicent-rivet-mini-expansion-panel [panelOpen]="boolean">
+  <div rivet-mini-expansion-head>Header Component</div>
+  <div rivet-mini-expansion-body>Body Component that will contain all the content for stuff</div>
+</advicent-rivet-mini-expansion-panel>
+  </textarea>
+    </app-example-snippet>
+</section>
+<section class="component-container">
+    <header>
+        <h2>Flipped Mini Expansion Panels</h2>
+        <h3>Implementation</h3>
+        <p>Mini expansion panel where the alignment of the header is flipped to the right.</p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <advicent-rivet-mini-expansion-panel panelOpen="true"
+                                                 arrowRight="true">
+                <div rivet-mini-expansion-head>Header Component</div>
+                <div rivet-mini-expansion-body>Body Component that will contain all the content for stuff</div>
+            </advicent-rivet-mini-expansion-panel>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<advicent-rivet-mini-expansion-panel [panelOpen]="boolean" arrowRight="true">
+  <div rivet-mini-expansion-head>Header Component</div>
+  <div rivet-mini-expansion-body>Body Component that will contain all the content for stuff</div>
+</advicent-rivet-mini-expansion-panel>
+  </textarea>
+    </app-example-snippet>
+</section>
+<section class="component-container">
+    <header>
+        <h2>Multiple Mini Expansion Panels</h2>
+        <h3>Implementation</h3>
+        <p>
+            Mini Expansion Panels can be wrapped with advicent-rivet-accordion-group to group them in a way where only
+            one will
+            be open at a time
+        </p>
+        <p>
+            You can also set <code>panelOpen</code> to true to set a default panel to be opened
+        </p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <advicent-rivet-accordion-group>
+                <advicent-rivet-mini-expansion-panel panelOpen="true">
+                    <div rivet-mini-expansion-head>Header Component</div>
+                    <div rivet-mini-expansion-body>Body Component that will contain all the content for stuff</div>
+                </advicent-rivet-mini-expansion-panel>
+                <advicent-rivet-mini-expansion-panel>
+                    <div rivet-mini-expansion-head>Header Component</div>
+                    <div rivet-mini-expansion-body>Body Component that will contain all the content for stuff</div>
+                </advicent-rivet-mini-expansion-panel>
+                <advicent-rivet-mini-expansion-panel>
+                    <div rivet-mini-expansion-head>Header Component</div>
+                    <div rivet-mini-expansion-body>Body Component that will contain all the content for stuff</div>
+                </advicent-rivet-mini-expansion-panel>
+            </advicent-rivet-accordion-group>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<advicent-rivet-accordion-group>
+  <advicent-rivet-mini-expansion-panel panelOpen="true">
+    <div rivet-mini-expansion-head>Header Component</div>
+    <div rivet-mini-expansion-body>Body Component that will contain all the content for stuff</div>
+  </advicent-rivet-mini-expansion-panel>
+  <advicent-rivet-mini-expansion-panel>
+    <div rivet-mini-expansion-head>Header Component</div>
+    <div rivet-mini-expansion-body>Body Component that will contain all the content for stuff</div>
+  </advicent-rivet-mini-expansion-panel>
+  <advicent-rivet-mini-expansion-panel>
+    <div rivet-mini-expansion-head>Header Component</div>
+    <div rivet-mini-expansion-body>Body Component that will contain all the content for stuff</div>
+  </advicent-rivet-mini-expansion-panel>
+</advicent-rivet-accordion-group>
+  </textarea>
+    </app-example-snippet>
+</section>

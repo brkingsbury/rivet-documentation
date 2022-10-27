@@ -1,0 +1,86 @@
+<header class="page-header">
+    <h1>Icon</h1>
+</header>
+
+<section class="component-container">
+    <h3>Implementation</h3>
+    <p>To add an icon, use the <code>rvt-icon</code> element and set the <code>name=""</code> to the name of the icon
+        you want to use.</p>
+    <p>There are 4 available icon sizes to use, which can be set using <code>size=""</code></p>
+    <div class="icon-grid">
+        <div class="icon-container">
+            <rvt-icon name="person" size="sm"></rvt-icon>
+            <code>sm</code>
+            <p>(15px)</p>
+        </div>
+        <div class="icon-container">
+            <rvt-icon name="person" size="md"></rvt-icon>
+            <code>md</code>
+            <p>(20px, default)</p>
+        </div>
+        <div class="icon-container">
+            <rvt-icon name="person" size="lg"></rvt-icon>
+            <code>lg</code>
+            <p>(30px)</p>
+        </div>
+        <div class="icon-container">
+            <rvt-icon name="person" size="xl"></rvt-icon>
+            <code>xl</code>
+            <p>(40px)</p>
+        </div>
+    </div>
+
+    <app-parameters [inputsConfig]="inputsConfig">
+    </app-parameters>
+</section>
+
+<!-- <app-icon-config></app-icon-config> -->
+
+<section class="component-container">
+    <app-example-snippet>
+        <div class="example-component">
+            <rvt-icon name="check" size="sm"></rvt-icon>
+            <rvt-icon name="check"></rvt-icon>
+            <rvt-icon name="check" size="lg"></rvt-icon>
+            <rvt-icon name="check" size="xl" label="checkmark"></rvt-icon>
+        </div>
+
+        <textarea title="HTML" class="example-code" readonly>
+<rvt-icon name="check" size="sm"></rvt-icon>
+<rvt-icon name="check"></rvt-icon>
+<rvt-icon name="check" size="lg"></rvt-icon>
+<rvt-icon name="check" size="xl" label="checkmark"></rvt-icon>
+        </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <h3>Styling icons</h3>
+    <p>
+        To style an icon (size, color, etc) use the same rules for styling text, such as <code>font-size</code>,
+        <code>color</code>. <strong>Icons should only be set to 1 of the 4 available sizes: 15px, 20px, 30px or
+            40px.</strong>
+        <br /><br />
+        It should be noted that icons from this font cannot contain more than one color. To insert an icon with multiple
+        colors you should insert an SVG image. SVG images are infinitely scalable an can also be styled with color
+        variables if set up correctly, i.e. imported as code.
+    </p>
+    <p>
+        There are three common color variables that icons will be assigned. They will be called out in annotated mockups
+        which variable to use.
+    </p>
+    <ul>
+        <li>
+            <rvt-icon name="amount"></rvt-icon>
+            Text icon <code>color: var(--rvt-color-text)</code>
+        </li>
+        <li>
+            <rvt-icon name="amount" class="neutral-icon"></rvt-icon>
+            Neutral Icon <code>color: var(--rvt-color-icon-neutral)</code>
+        </li>
+        <li>
+            <rvt-icon name="amount" class="color-icon"></rvt-icon>
+            Color Icon <code>color: var(--rvt-color-icon-color)</code>
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,26 @@
+@import 'typeStyles';
+:host {
+    @include rvt-font-f;
+}
+.param-container {
+    p {
+        margin: var(--rvt-spacing-lg) 0 var(--rvt-spacing-sm) 0;
+    }
+}
+h4 {
+    @include rvt-font-d;
+}
+tr {
+    margin-bottom: 20px;
+}
+td {
+    vertical-align: top;
+    padding-bottom: 15px;
+    &:first-child {
+        padding-right: 15px;
+    }
+}
+.data-type {
+    font-style: italic;
+    font-size: 14px;
+}

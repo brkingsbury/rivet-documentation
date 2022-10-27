@@ -1,0 +1,315 @@
+<header class="page-header">
+    <h1>Input</h1>
+    <div class="header-icons">
+        <!-- <a class="sketch" title="sketch file" href="" target="new">
+            <img src="../../assets/sketch.svg" alt="sketch file icon"/>
+        </a> -->
+        <!-- <app-compliance-marker></app-compliance-marker> -->
+    </div>
+</header>
+
+<section class="component-container">
+    <header>
+        <p>
+            Inputs capture and display data entered by the user.
+        </p>
+        <h3>Use Case</h3>
+        <p>
+            Use Inputs differently depending on if they have a label. Inputs with labels are used for standalone inputs,
+            where the labels refer to what the single input is asking for. Inputs without labels are used for
+            multiple/form inputs as the form itself will contain the labels.
+        </p>
+        <h3>Implementation</h3>
+        <p>Inputs currently use the Angular Material input component and directives as their basis.</p>
+        <app-parameters [attrsConfig]="attrsConfig"
+                        [classesConfig]="classesConfig">
+        </app-parameters>
+    </header>
+</section>
+
+<section class="component-container">
+    <div class="controls">
+        <p>Input states:</p>
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="reqCheck"
+                   [checked]="isRequired"
+                   (change)="isRequired = !isRequired" />
+            <label for="reqCheck">Required input</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="invCheck"
+                   [checked]="isInvalid"
+                   (change)="isInvalid = !isInvalid; isDisabled = false" />
+            <label for="invCheck">Invalid input</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="disCheck"
+                   [checked]="isDisabled || isReadOnly"
+                   (change)="isDisabled = !isDisabled; isInvalid = false" />
+            <label for="disCheck">Disabled input</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="roCheck"
+                   [checked]="isReadOnly && isDisabled"
+                   (change)="isReadOnly = !isReadOnly; isDisabled = isReadOnly; isInvalid = false" />
+            <label for="roCheck">Read Only input</label>
+        </div>
+    </div>
+    <app-example-snippet>
+        <div class="example-component">
+            <mat-form-field [class.invalid]="isInvalid"
+                            [class.read-only]="isReadOnly">
+                <input matInput
+                       placeholder="Full name"
+                       value="Barry Banker"
+                       [required]="isRequired"
+                       [disabled]="isDisabled" />
+                <mat-hint>Enter full name with spaces</mat-hint>
+            </mat-form-field>
+            <p *ngIf="isRequired && isDisabled">Material currently hides the * when a field is disabled.</p>
+        </div>
+        <!-- Start code examples -->
+        <textarea class="example-code"
+                  readonly
+                  title="HTML"
+                  *ngIf="!isRequired && !isInvalid && !isDisabled && !isReadOnly">
+<mat-form-field>
+    <input matInput
+            placeholder="Full name"
+            value="Barry Banker"/>
+    <mat-hint>Enter full name with spaces</mat-hint>
+</mat-form-field>
+        </textarea>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML"
+                  *ngIf="isRequired && !isDisabled && !isInvalid && !isReadOnly">
+<mat-form-field>
+    <input matInput
+            placeholder="Full name"
+            value="Barry Banker"
+            [required]="true"/>
+    <mat-hint>Enter full name with spaces</mat-hint>
+</mat-form-field>
+        </textarea>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML"
+                  *ngIf="isRequired && isInvalid && !isDisabled && !isReadOnly">
+<mat-form-field [class.invalid]="true">
+    <input matInput
+            placeholder="Full name"
+            value="Barry Banker"
+            [required]="true"/>
+    <mat-hint>Enter full name with spaces</mat-hint>
+</mat-form-field>
+        </textarea>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML"
+                  *ngIf="isRequired && isDisabled && !isReadOnly">
+<mat-form-field>
+    <input matInput
+            placeholder="Full name"
+            value="Barry Banker"
+            [required]="true"
+            [disabled]="true" />
+    <mat-hint>Enter full name with spaces</mat-hint>
+</mat-form-field>
+        </textarea>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML"
+                  *ngIf="isInvalid && !isDisabled && !isRequired && !isReadOnly">
+<mat-form-field [class.invalid]="true">
+    <input matInput
+            placeholder="Full name"
+            value="Barry Banker"/>
+    <mat-hint>Enter full name with spaces</mat-hint>
+</mat-form-field>
+        </textarea>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML"
+                  *ngIf="isDisabled && !isRequired && !isReadOnly">
+<mat-form-field>
+    <input matInput
+            placeholder="Full name"
+            value="Barry Banker"
+            [disabled]="true" />
+    <mat-hint>Enter full name with spaces</mat-hint>
+</mat-form-field>
+        </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML"
+                  *ngIf="!isRequired && isReadOnly">
+<mat-form-field [class.read-only]="true">
+    <input matInput
+            placeholder="Full name"
+            value="Barry Banker"
+            [disabled]="true" />
+    <mat-hint>Enter full name with spaces</mat-hint>
+</mat-form-field>
+        </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <h2>Input states</h2>
+    <h3>Invalid</h3>
+    <p>Invalid styles can either be applied as a conditional class of <code>[class.invalid]="boolean"</code> applied to the <code>mat-form-field</code> container OR through form control set on the <code>input</code>, OR through the use of the<code>rvt-form-field</code> directive set on the <code>mat-form-field</code> container.</p>
+    <h3>Disabled</h3>
+    <p>For disabled styles, simply set a conditional <code>disabled</code> attribute on the input or use the disabled state in form control. Material will apply the classes to the rest of the tags automatically.</p>
+    <h3>Read-only</h3>
+    <p>Since Material and form control do not support read-only states, a conditional class of <code>[class.read-only]="boolean"</code> needs to be applied to the <code>mat-form-field</code> container. The input must also be disabled in order to use the <code>read-only</code> class.</p>
+</section>
+
+<section class="component-container">
+    <h2>Input sizes</h2>
+    <ul> There are 4 input size classes available to use.
+        <li>
+            <code>rvt-input-sm</code> : 45px wide. Used for inputs with a max of 3-4 characters such as ages or
+            percentages.
+        </li>
+        <li>
+            <code>rvt-input-md</code> : 135px wide. Can be used for full date format or any of the above.
+        </li>
+        <li><code>rvt-input-lg</code> : 210px wide. Used for full names or any of the above.</li>
+        <li><code>rvt-input-full</code> : 100% width of container. Used for long inputs or for matching styles.</li>
+    </ul>
+
+    <h3>Small Input</h3>
+    <p>
+        Add the class <code>rvt-input-sm</code> to the mat-form-field to apply a 45px width to the input
+    </p>
+    <app-example-snippet>
+        <div class="example-component">
+            <form>
+                <mat-form-field class="rvt-input-sm">
+                    <input matInput
+                           placeholder="rvt-input-sm"
+                           value="WW" />
+                    <mat-hint>45px wide</mat-hint>
+                </mat-form-field>
+            </form>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<form>
+    <mat-form-field class="rvt-input-sm">
+        <input matInput
+                placeholder="rvt-input-sm"
+                value="WW" />
+        <mat-hint>45px wide</mat-hint>
+    </mat-form-field>
+</form>
+        </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <h3>Medium Input</h3>
+    <p>
+        Add the class <code>rvt-input-md</code> to the mat-form-field to apply a 135px width to the input
+    </p>
+    <app-example-snippet>
+        <div class="example-component">
+            <form>
+                <mat-form-field class="rvt-input-md">
+                    <input matInput
+                           placeholder="rvt-input-md"
+                           value="00/00/0000" />
+                    <mat-hint>135px wide</mat-hint>
+                </mat-form-field>
+            </form>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<form>
+    <mat-form-field class="rvt-input-md">
+        <input matInput
+                placeholder="rvt-input-md"
+                value="00/00/0000" />
+        <mat-hint>135px wide</mat-hint>
+    </mat-form-field>
+</form>
+        </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <h3>Large Input</h3>
+    <p>
+        Add the class <code>rvt-input-lg</code> to the mat-form-field to apply a 210px width to the input
+    </p>
+    <app-example-snippet>
+        <div class="example-component">
+            <form>
+                <mat-form-field class="rvt-input-lg">
+                    <input matInput
+                           placeholder="rvt-input-lg"
+                           value="Input text value" />
+                    <mat-hint>210px wide</mat-hint>
+                </mat-form-field>
+            </form>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<form>
+    <mat-form-field class="rvt-input-lg">
+        <input matInput
+                placeholder="rvt-input-lg"
+                value="Input text value" />
+        <mat-hint>210px wide</mat-hint>
+    </mat-form-field>
+</form>
+        </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <h3>Full Width Input</h3>
+    <p>
+        Add the class <code>rvt-input-full</code> to the mat-form-field to apply a 100% width to the input
+    </p>
+    <app-example-snippet>
+        <div class="example-component">
+            <form>
+                <mat-form-field class="rvt-input-full">
+                    <input matInput
+                           placeholder="rvt-input-full"
+                           value="Input text value" />
+                    <mat-hint>100% wide</mat-hint>
+                </mat-form-field>
+            </form>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<form>
+    <mat-form-field class="rvt-input-full">
+        <input matInput
+               placeholder="rvt-input-full"
+               value="Input text value" />
+        <mat-hint>100% wide</mat-hint>
+    </mat-form-field>
+</form>
+        </textarea>
+    </app-example-snippet>
+</section>

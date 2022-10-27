@@ -1,0 +1,233 @@
+<header class="page-header">
+    <h1>Tabs</h1>
+</header>
+<section class="component-container">
+    <p>Tabs switch between sections on a page, new pages, or steps in a user flow.</p>
+    
+    <h3>Use case</h3>
+
+    <p>Use Tabs when there are multiple groups of related content that a user should navigate between. Use Tabs to
+        switch between content on the same page, new pages, or steps in a user flow.</p>
+
+    <h3>Implementation</h3>
+
+    <app-parameters [classesConfig]="classesConfig"
+                    [attrsConfig]="attrsConfig">
+    </app-parameters>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Content tabs</h2>
+    </header>
+    <section class="component-container">
+        <h3>Use case</h3>
+        <p>Use Content Tabs to switch between content views on the same page. Use Navigation tabs instead if switching
+            between pages or routes.</p>
+    </section>
+    <app-example-snippet>
+        <div class="example-component"
+             [class.inverse]="isInverse">
+
+            <rvt-slide-toggle class="inverse-toggle"
+                              label="Inverse"
+                              [checked]="isInverse"
+                              (toggleEvent)="isInverse = !isInverse">
+            </rvt-slide-toggle>
+
+            <mat-tab-group disableRipple
+                           [class.inverse]="isInverse">
+                <mat-tab label="First"> Content 1 </mat-tab>
+                <mat-tab label="Second"> Content 2 </mat-tab>
+                <mat-tab label="Third"> Content 3 </mat-tab>
+                <mat-tab label="Disabled"
+                         [disabled]="true"> </mat-tab>
+            </mat-tab-group>
+        </div>
+
+        <textarea *ngIf="!isInverse"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<mat-tab-group disableRipple>
+    <mat-tab label="First"> Content 1 </mat-tab>
+    <mat-tab label="Second"> Content 2 </mat-tab>
+    <mat-tab label="Third"> Content 3 </mat-tab>
+    <mat-tab label="Disabled" [disabled]="true"> </mat-tab>
+</mat-tab-group>
+    </textarea>
+
+        <textarea *ngIf="isInverse"
+                  class="example-code"
+                  readonly>
+<mat-tab-group disableRipple class="inverse">
+    <mat-tab label="First"> Content 1 </mat-tab>
+    <mat-tab label="Second"> Content 2 </mat-tab>
+    <mat-tab label="Third"> Content 3 </mat-tab>
+    <mat-tab label="Disabled" [disabled]="true"> </mat-tab>
+</mat-tab-group>
+</textarea>
+    </app-example-snippet>
+
+    <header>
+        <h2>Numbered Content tabs</h2>
+    </header>
+    <section class="component-container">
+        <h3>Use case</h3>
+        <p>Use Numbered Content Tabs to switch through a flow in the content view.</p>
+    </section>
+    <app-example-snippet>
+        <div class="example-component">
+            <mat-tab-group disableRipple
+                           class="numbered-tabs">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        First
+                        <span class="tab-number">1</span>
+                    </ng-template>
+                    Content 1
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        Second
+                        <span class="tab-number">2</span>
+                    </ng-template>
+                    Content 2
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        Third
+                        <span class="tab-number">3</span>
+                    </ng-template>
+                    Content 2
+                </mat-tab>
+                <mat-tab [disabled]="true">
+                    <ng-template mat-tab-label>
+                        Disabled
+                        <span class="tab-number">4</span>
+                    </ng-template>
+                    Content 2
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<mat-tab-group disableRipple class="numbered-tabs">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            First
+            <span class="tab-number">1</span>
+        </ng-template>
+        Content 1
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            Second
+            <span class="tab-number">2</span>
+        </ng-template>
+        Content 2
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            Third
+            <span class="tab-number">3</span>
+        </ng-template>
+        Content 2
+    </mat-tab>
+    <mat-tab [disabled]="true">
+        <ng-template mat-tab-label>
+            Disabled
+            <span class="tab-number">4</span>
+        </ng-template>
+        Content 2
+    </mat-tab>
+</mat-tab-group>
+    </textarea>
+    </app-example-snippet>
+
+    <header>
+        <h2>Navigation tabs</h2>
+    </header>
+    <section class="component-container">
+        <h3>Use case</h3>
+        <p>Use Navigation Tabs to switch between pages or routes.</p>
+    </section>
+    <app-example-snippet>
+        <div class="example-component"
+             [class.inverse]="isInverse">
+        <rvt-slide-toggle class="inverse-toggle"
+                            label="Inverse"
+                            [checked]="isInverse"
+                            (toggleEvent)="isInverse = !isInverse">
+        </rvt-slide-toggle>
+            <div class="library-container">
+                <div class="nav-container">
+                    <nav mat-tab-nav-bar
+                         disableRipple
+                         [class.inverse]="isInverse">
+                        <a mat-tab-link
+                           [routerLink]=""
+                           routerLinkActive
+                           #rla="routerLinkActive"
+                           [active]="true">
+                            One
+                        </a>
+                        <a mat-tab-link
+                           [routerLink]=""
+                           routerLinkActive
+                           #rla="routerLinkActive"
+                           [active]="">
+                            Two
+                        </a>
+                        <a mat-tab-link
+                           [routerLink]=""
+                           routerLinkActive
+                           #rla="routerLinkActive"
+                           [active]="">
+                            Three
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  *ngIf="!isInverse"
+                  title="HTML">
+<nav mat-tab-nav-bar disableRipple>
+    <a mat-tab-link [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        One
+    </a>
+    <a mat-tab-link [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        Two
+    </a>
+    <a mat-tab-link [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        Three
+    </a>
+</nav>
+    </textarea>
+    <textarea class="example-code"
+              readonly
+              *ngIf="isInverse"
+              title="HTML">
+<nav mat-tab-nav-bar disableRipple class="inverse">
+    <a mat-tab-link [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        One
+    </a>
+    <a mat-tab-link [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        Two
+    </a>
+    <a mat-tab-link [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        Three
+    </a>
+</nav>
+</textarea>
+    </app-example-snippet>
+</section>

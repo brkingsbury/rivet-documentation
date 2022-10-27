@@ -1,0 +1,95 @@
+<header class="page-header">
+    <h1>Chip</h1>
+</header>
+
+<section class="component-container">
+    <p>Chips are spans that list out small blocks of information.</p>
+    <h3>Use Case</h3>
+    <p>
+        Use chips to denote the status or priority of a component or filter.
+    </p>
+    <h3>Implementation</h3>
+    <p>Add class to a span</p>
+    <app-parameters [classesConfig]="classesConfig">
+    </app-parameters>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Standard Chip</h2>
+        <h3>Use case</h3>
+        <p>Use to list out tags or filter options</p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <span class="rvt-chip">
+                One
+            </span>
+            <span class="rvt-chip">
+                Two
+            </span>
+            <span class="rvt-chip">
+                Three
+            </span>
+        </div>
+        <textarea class="example-code"
+                  title="HTML"
+                  readonly>
+<span class="rvt-chip">
+    One
+</span>
+<span class="rvt-chip">
+    Two
+</span>
+<span class="rvt-chip">
+    Three
+</span>
+        </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Priority Chip</h2>
+        <h3>Use case</h3>
+        <p>Use to mark components based on priority, severity, importance etc.</p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <span class="rvt-chip--alpha rivet-icon-caret-up">
+                Very important
+            </span>
+            <span class="rvt-chip--bravo rivet-icon-caret-up">
+                Sorta important
+            </span>
+            <span class="rvt-chip--charlie rivet-icon-caret-up">
+                Not important
+            </span>
+            <span class="rvt-chip--delta rivet-icon-caret-up">
+                Not important
+            </span>
+            <span class="rvt-chip--echo rivet-icon-caret-up">
+                Not important
+            </span>
+        </div>
+        <textarea class="example-code"
+                  title="HTML"
+                  readonly>
+<span class="rvt-chip--alpha rivet-icon-caret-up">
+    Very important
+</span>
+<span class="rvt-chip--bravo rivet-icon-caret-up">
+    Sorta important
+</span>
+<span class="rvt-chip--charlie rivet-icon-caret-up">
+    Not important
+</span>
+<span class="rvt-chip--delta rivet-icon-caret-up">
+    Not important
+</span>
+<span class="rvt-chip--echo rivet-icon-caret-up">
+    Not important
+</span>
+        </textarea>
+    </app-example-snippet>
+</section>

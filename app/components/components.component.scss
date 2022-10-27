@@ -1,0 +1,191 @@
+@import '../../styles.scss';
+@import '../app.component.scss';
+
+app-example-snippet {
+    margin-bottom: var(--rvt-spacing-xxxl);
+}
+.component-container {
+
+    h2 {
+        margin-bottom: var(--rvt-spacing-md);
+        &:not(:first-of-type) {
+            margin-top: var(--rvt-spacing-xxxl);
+        }
+    }
+
+    .example-component {
+        position: relative;
+        background-color: var(--rvt-color-bg);
+        border-width: 2px;
+        border-style: solid;
+        border-color: var(--rvt-color-neutral-2);
+        transition: background-color 400ms ease;
+        padding: var(--rvt-spacing-xl) var(--rvt-spacing-lg);
+        margin: 0;
+        border-bottom: none;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+
+        button,
+        a {
+            margin-right: var(--rvt-spacing-sm);
+        }
+
+        mat-form-field,
+        .rvt-input-wrap {
+            margin-right: var(--rvt-spacing-lg);
+        }
+
+        &.inverse {
+            background-color: var(--rvt-color-neutral-8);
+
+            // inverse styles here unless added to Rivet package
+            rvt-slide-toggle {
+                ::ng-deep .rivet-slide-toggle-label {
+                    color: var(--rvt-color-neutral-0);
+                }
+
+                ::ng-deep .rivet-slide-toggle-rail {
+                    background: var(--rvt-color-neutral-3);
+
+                    &:before {
+                        background-color: var(--rvt-color-neutral-0);
+                        border-color: var(--rvt-color-neutral-0);
+                    }
+                }
+            }
+        }
+
+        rvt-tile {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        rvt-slide-toggle.inverse-toggle {
+            position: absolute;
+            right: var(--rvt-spacing-xs);
+            top: var(--rvt-spacing-xs);
+        }
+
+        .rivet-mini-expansion-body {
+            font-size: 1.4rem;
+        }
+    }
+
+    .example-code {
+        min-height: 200px;
+
+        &.large {
+            min-height: 350px;
+        }
+    }
+
+    .example-code-copy {
+        float: right;
+        padding: 7px 15px;
+        line-height: 13px;
+        cursor: pointer;
+    }
+
+    .rvt-card {
+        font-size: 16px;
+    }
+
+}
+
+
+h5 {
+    margin-bottom: var(--rvt-spacing-sm);
+
+    a[class*='rivet-icon'] {
+        margin-left: var(--rvt-spacing-xs);
+        text-decoration: none;
+        font-size: 16px;
+        vertical-align: middle;
+
+        &:before {
+            color: var(--rvt-color-text);
+            line-height: 30px;
+        }
+    }
+}
+
+h6 {
+    margin: var(--rvt-spacing-lg) 0 var(--rvt-spacing-xxs) 0;
+}
+
+.controls {
+    margin-top: var(--rvt-spacing-sm);
+    padding: var(--rvt-spacing-sm);
+    background-color: var(--rvt-color-neutral-2);
+
+    p {
+        font-weight: 600;
+    }
+
+    .mat-checkbox,
+    .mat-radio-button {
+        margin-right: 15px;
+        margin-right: var(--rvt-spacing-sm);
+    }
+
+    +.example-component {
+        margin-top: 0;
+    }
+}
+
+.mat-sidenav-container {
+    min-height: 350px;
+    margin-bottom: var(--rvt-spacing-xxl);
+    top: 0;
+}
+
+.rvt-checkbox {
+    margin-bottom: var(--rvt-spacing-xxs);
+}
+
+.rvt-radio {
+    margin-right: var(--rvt-spacing-sm);
+}
+
+// ---- Styles for component overview page
+.tile-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    button.tile {
+        position: relative;
+        margin: var(--rvt-spacing-xs);
+        height: 200px;
+        width: 200px;
+        cursor: pointer;
+        background-color: #fff;
+        transition: box-shadow 200ms ease;
+        border: 2px solid var(--rvt-color-neutral-2);
+        border-radius: var(--border-radius);
+        box-shadow: none;
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15);
+            span {
+                font-weight: 700;
+            }
+        }
+
+        span {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #6B7280;
+            font: 400 16px $RvtFontFamily;
+        }
+
+        img {
+            position: absolute;
+            left: calc(50% - 62.5px);
+            top: calc(50% - 50px);
+            height: 125px;
+            width: 125px;
+        }
+    }
+}

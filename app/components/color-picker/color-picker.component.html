@@ -1,0 +1,50 @@
+<header class="page-header">
+    <h1>Color Picker</h1>
+</header>
+
+<section class="component-container">
+    <p>
+        Color Picker is used to generate hex codes based on the browser default color input
+    </p>
+    <h3>Use Case</h3>
+    <p>
+        Combine with a text input to simplify the color input process
+    </p>
+
+    <h3>Implementation</h3>
+    <app-parameters [attrsConfig]="attrsConfig">
+    </app-parameters>
+</section>
+
+<section class="component-container">
+
+    <app-example-snippet>
+        <div class="example-component">
+            <mat-form-field>
+                <input matInput
+                        [(ngModel)]="colorvar"/>
+                <mat-hint>Enter HEX color (#000000)</mat-hint>
+            </mat-form-field>
+            <advicent-rivet-color-picker [(colorValue)]="colorvar"></advicent-rivet-color-picker>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<mat-form-field>
+    <input matInput
+            [(ngModel)]="colorvar"/>
+    <mat-hint>Enter HEX color (#000000)</mat-hint>
+</mat-form-field>
+<advicent-rivet-color-picker [(colorValue)]="colorvar"></advicent-rivet-color-picker>
+        </textarea>
+        <textarea class="example-code"
+        readonly
+        title="Typescript"
+        #txtInput>
+public colorvar = "#FFFFFF";
+        </textarea>
+
+    </app-example-snippet>
+</section>
+<!--  END EXAMPLE  -->

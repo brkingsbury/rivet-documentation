@@ -1,0 +1,117 @@
+<header class="page-header">
+    <h1>Table</h1>
+    <div class="header-icons">
+        <!-- <a class="sketch" title="sketch file" href="" target="new">
+            <img src="../../assets/sketch.svg" alt="sketch file icon"/>
+        </a> -->
+        <!-- <app-compliance-marker></app-compliance-marker> -->
+    </div>
+</header>
+
+<section class="component-container">
+    <p>Tables use rows and columns to organize data in a dense format.</p>
+    <h3>Use case</h3>
+    <p>Use Tables to display large sets of data using rows and columns. Search, sorting, and filtering features may be
+        added to improve organization.</p>
+    <h3>Implementation</h3>
+    <p>Tables are built off of Angular material. For more documentation see <a class="rvt-link"
+           href="https://material.angular.io/components/table/overview"
+           target="new">Material tables</a>.
+        <br />Tables should not use the default material
+        <code>class="mat-elevation-x"</code>
+    </p>
+    <app-example-snippet>
+        <div class="example-component">
+            <app-table-basic-example></app-table-basic-example>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<app-table-basic-example></app-table-basic-example>
+    </textarea>
+
+        <textarea class="example-code large"
+                  readonly
+                  title="HTML - Table Template">
+<table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {element.position} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {element.name} </td>
+    </ng-container>
+    <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {element.weight} </td>
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {element.symbol} </td>
+    </ng-container>    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+    </textarea>
+
+        <textarea class="example-code large"
+                  readonly
+                  title="Typescript">
+export interface PeriodicElement {
+    name: string;
+    position: number;
+    weight: number;
+    symbol: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+    { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+    { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+    { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
+    { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
+    { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
+    { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
+    { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
+    { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
+];
+
+@Component({
+    selector: 'app-table-basic-example',
+    templateUrl: 'table-basic-example.html'
+})
+export class TableBasicExampleComponent {
+    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+    dataSource = ELEMENT_DATA;
+}
+    </textarea>
+    </app-example-snippet>
+</section>
+
+<!-- End Example -->
+
+<section class="component-container">
+    <h2>Pagination</h2>
+
+    <h3>Use case</h3>
+    <p>Use Pagination when tables become too long to display on 1 page.</p>
+    <h3>Implementation</h3>
+    <p>Pagination uses the Angular Material pagination component. For more documentation see <a class="rvt-link"
+           href="https://material.angular.io/components/paginator/overview"
+           target="new">Material pagination</a>.</p>
+
+    <app-example-snippet>
+        <div class="example-component">
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                           showFirstLastButtons></mat-paginator>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </textarea>
+    </app-example-snippet>
+</section>

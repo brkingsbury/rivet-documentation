@@ -1,0 +1,151 @@
+<header class="page-header">
+    <h1>Text Area</h1>
+</header>
+
+<section class="component-container">
+    <p>Text areas capture long form data entered by the user.</p>
+
+    <h3>Use case</h3>
+
+    <p>Use Text Areas when users need to enter large amounts of text such as comments, suggestions, or messages.</p>
+
+    <h3>Implementation</h3>
+
+    <app-parameters [inputsConfig]="inputsConfig"
+                    [classesConfig]="classesConfig">
+    </app-parameters>
+</section>
+
+<section class="component-container">
+    <div class="controls">
+        <p>Input states:</p>
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="reqCheck"
+                   [checked]="isRequired"
+                   (change)="isRequired = !isRequired" />
+            <label for="reqCheck">Required</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="invCheck"
+                   [checked]="isInvalid"
+                   (change)="isInvalid = !isInvalid; isDisabled = false" />
+            <label for="invCheck">Invalid</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="disCheck"
+                   [checked]="isDisabled"
+                   (change)="isDisabled = !isDisabled; isInvalid = false" />
+            <label for="disCheck">Disabled</label>
+        </div>
+    </div>
+
+    <app-example-snippet>
+        <div class="example-component">
+            <div class="rvt-input-wrap"
+                 [class.invalid]="isInvalid"
+                 [class.required]="isRequired">
+                <label for="empty">Label</label>
+                <textarea id="empty"
+                          [disabled]="isDisabled">Sample text</textarea>
+                <span *ngIf="!isRequired && !isInvalid"
+                      class="helper-text">Helper text</span>
+                <span *ngIf="isRequired && !isInvalid"
+                      class="helper-text">This field is required</span>
+                <span *ngIf="isInvalid"
+                      class="helper-text">Reason for invalid</span>
+            </div>
+        </div>
+
+        <!-- Basic -->
+        <div class="example-code-header">
+            <p>HTML</p>
+        </div>
+        <textarea *ngIf="!isRequired && !isInvalid && !isDisabled"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<div class="rvt-input-wrap">
+    <label for="sample">Label</label>
+    <textarea id="sample">
+        Sample text
+    &lt;/textarea>
+    <span class="helper-text">Helper text goes here</span>
+</div>
+        </textarea>
+
+        <!-- Required -->
+        <textarea *ngIf="!isInvalid && isRequired && !isDisabled"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<div class="rvt-input-wrap required">
+    <label for="sample">Label</label>
+    <textarea id="sample" aria-required="true" required>
+        Sample text
+    &lt;/textarea>
+    <span class="helper-text">This field is required</span>
+</div>
+        </textarea>
+
+        <!-- Invalid  -->
+        <textarea *ngIf="isInvalid && !isRequired && !isDisabled"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<div class="rvt-input-wrap invalid">
+    <label for="sample">Label</label>
+    <textarea id="sample">
+        Sample text
+    &lt;/textarea>
+    <span class="helper-text">Reason for invalid</span>
+</div>
+        </textarea>
+
+        <!-- Required & Invalid-->
+        <textarea *ngIf="isInvalid && isRequired && !isDisabled"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<div class="rvt-input-wrap required invalid">
+    <label for="sample">Label</label>
+    <textarea id="sample" aria-required="true" required>
+        Sample text
+    &lt;/textarea>
+    <span class="helper-text">Reason for invalid</span>
+</div>
+      </textarea>
+
+        <!-- Disabled -->
+        <textarea *ngIf="!isInvalid && !isRequired && isDisabled"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<div class="rvt-input-wrap">
+    <label for="sample">Label</label>
+    <textarea id="sample" aria-disabled="true" disabled>
+        Sample text
+    &lt;/textarea>
+    <span class="helper-text">This field is required</span>
+</div>
+    </textarea>
+
+        <!-- Required && Disabled -->
+        <textarea *ngIf="!isInvalid && isRequired && isDisabled"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<div class="rvt-input-wrap required">
+    <label for="sample">Label</label>
+    <textarea id="sample" aria-disabled="true" required disabled>
+        Sample text
+    &lt;/textarea>
+    <span class="helper-text">This field is required</span>
+</div>
+        </textarea>
+    </app-example-snippet>
+</section>

@@ -1,0 +1,84 @@
+<header class="page-header">
+    <h1>Snackbar</h1>
+</header>
+
+<section class="component-container">
+    <p>
+        Snackbars are low emphasis notifications that prompt user action or confirm an action has happened. </p>
+
+    <h3>Use case</h3>
+
+    <p>Use Snackbars to gently inform users of application actions outside of the user’s control. Snackbar notifications
+        can communicate actions completed successfully, errors, connection problems, and action delays. Snackbars are
+        configured to dismiss manually or automatically with a time limit. Consider using a <a class="rvt-link"
+           routerLink="/components/dialog">Dialog</a> for high priority notifications.</p>
+    <p>
+    </p>
+    <h3>Implementation</h3>
+
+    <app-parameters [inputsConfig]="inputsConfig">
+    </app-parameters>
+
+    <p> Snackbars currently use the Angular Material snackbar component and directives as their basis. In order to
+        have more control over the parts within the snackbar, it is advised to use the separate template
+        for the snackbar structure.
+        <br />
+        For more information on Material snackbars, see <a class="rvt-link"
+           href="https://material.angular.io/components/snack-bar/overview"
+           target="new">Snackbar documentation</a>.</p>
+
+    <app-example-snippet>
+        <div class="example-component">
+            <button class="rvt-btn-primary"
+                    (click)="openSnackBar2()"
+                    aria-label="Show an example snack-bar">
+                Test Snackbar
+            </button>
+            <button class="rvt-btn-primary"
+                    (click)="openErrorSnackbar()">Test Error Snackbar</button>
+            <button class="rvt-btn-primary"
+                    (click)="openSuccessSnackbar()">Test Success Snackbar</button>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-primary" (click)="openSnackBar2()" aria-label="Show an example snack-bar">
+    Test Snackbar
+</button>
+    </textarea>
+
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML - Snackbar Template">
+<p class="snackbar-text">Example snackbar content</p>
+<div class="snackbar-content">
+    <p class="snackbar-text">Example snackbar content</p>
+    
+    <button class="rvt-btn-primary snackbar-action" (click)="closeSnack()">Close</button>
+</div>
+    </textarea>
+
+
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+constructor(private _snackBar: MatSnackBar) {}
+
+openSnackBar2() {
+    this._snackBar.openFromComponent(Snackbar2Component, {
+        data: {
+            message: "Example snackbar content",
+            snackbarType: "",
+            dismissable, true
+        },
+        duration: 10000,
+        horizontalPosition: 'center',
+        panelClass: ""
+    });
+}
+    </textarea>
+        <!-- End Example -->
+    </app-example-snippet>
+</section>

@@ -1,0 +1,54 @@
+<h1 class="page-header">Version History</h1>
+
+<div class="component-container version-container">
+    <h5 id="version">Latest version</h5>
+    <div class="version-history">
+        <div *ngFor="let version of versions">
+            <h5>{{ version.version }}&nbsp;</h5>
+            <span>- {{ version.date | date }}</span>
+            <h6 class="release-notes">{{ version.note }}</h6>
+            <ul *ngFor="let update of version.updates">
+                {{ update.category }}
+                <li *ngFor="let bullet of update.bullets">{{ bullet }}</li>
+            </ul>
+            <hr />
+        </div>
+        <p><strong>Note - this release includes breaking changes.  For instructions on how to upgrade to this release see <a class="rvt-link" href="https://advicent.sharepoint.com/:o:/s/Rivet/EvzUTjHckStKmqTT5dy7H4gBceNUss99vVunOZkcn9D-pA?e=EnZnvX" target="new">this documentation</a></strong></p>
+    </div>
+    
+    <advicent-rivet-expansion-panel>
+        <div header-content>
+            <h5>4.0 versions</h5>
+        </div>
+        <div expansion-content class="version-history old">
+            <div *ngFor="let version of version4">
+                <h5>{{ version.version }}&nbsp;</h5>
+                <span>- {{ version.date | date }}</span>
+                <h6 class="release-notes">{{ version.note }}</h6>
+                <ul *ngFor="let update of version.updates">
+                    {{ update.category }}
+                    <li *ngFor="let bullet of update.bullets">{{ bullet }}</li>
+                </ul>
+                <hr />
+            </div>
+        </div>
+    </advicent-rivet-expansion-panel>
+    
+    <advicent-rivet-expansion-panel>
+        <div header-content>
+            <h5>3.0 versions and earlier</h5>
+        </div>
+        <div expansion-content class="version-history old">
+                <div *ngFor="let version of oldVersions">
+                    <h5>{{ version.version }}&nbsp;</h5>
+                    <span>- {{ version.date | date }}</span>
+                    <h6 class="release-notes">{{ version.note }}</h6>
+                    <ul *ngFor="let update of version.updates">
+                        {{ update.category }}
+                        <li *ngFor="let bullet of update.bullets">{{ bullet }}</li>
+                    </ul>
+                    <hr />
+                </div>
+        </div>
+    </advicent-rivet-expansion-panel>
+</div>

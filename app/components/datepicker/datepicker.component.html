@@ -1,0 +1,57 @@
+<header class="page-header">
+    <h1>Datepicker</h1>
+    <div class="header-icons">
+        <!-- <a class="rivet-icon-pdf"
+           title="spec sheet"
+           href=""
+           target="new"></a> -->
+        <!-- <a class="sketch"
+           title="sketch file"
+           href=""
+           target="new">
+            <img src="../../assets/sketch.svg"
+                 alt="sketch icon" />
+        </a> -->
+        <!-- <app-compliance-marker></app-compliance-marker> -->
+    </div>
+</header>
+
+<section class="component-container">
+    <p>
+        Datepickers are inputs that give users multiple ways to enter a date.
+    </p>
+    <h3>Use Case</h3>
+    <p>
+        Use Datepickers to let users type a formatted date or select one from a calendar. Datepickers are added to
+        every date input field.
+    </p>
+    <h3>Implementation</h3>
+    <p>Datepickers currently use the Angular Material
+</section>
+
+<section class="component-container">
+    <app-example-snippet>
+        <div class="example-component">
+            <mat-form-field>
+                <input matInput
+                       [matDatepicker]="picker"
+                       placeholder="Choose a date" />
+                <mat-datepicker-toggle matSuffix
+                                       [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <!-- Example -->
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+    </textarea>
+    </app-example-snippet>
+    <!-- End Example -->
+</section>

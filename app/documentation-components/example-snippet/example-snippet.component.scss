@@ -1,0 +1,69 @@
+app-example-snippet {
+    .panel-0 {
+        textarea:nth-child(1){
+            display: block;
+        }
+    }
+    .panel-1 {
+        textarea:nth-child(2){
+            display: block;
+        }
+    }
+    .panel-2 {
+        textarea:nth-child(3){
+            display: block;
+        }
+    }
+    .panel-3 {
+        textarea:nth-child(4){
+            display: block;
+        }
+    }
+    .panel-4 {
+        textarea:nth-child(5){
+            display: block;
+        }
+    }
+    .panel-5 {
+        textarea:nth-child(6){
+            display: block;
+        }
+    }
+    textarea {
+        display: none;
+    }
+}
+
+
+.example-code-header {
+    display: block;
+    width: 100%;
+    background-color: var(--rvt-color-neutral-1);
+    margin: 0;
+
+    label,
+    p,
+    a:not(.mat-tab-link) {
+        display: inline-block;
+        line-height: 1.5;
+        padding: 5px 5px 5px 15px;
+        padding: var(--rvt-spacing-xxs) var(--rvt-spacing-xxs) var(--rvt-spacing-xxs) var(--rvt-spacing-sm);
+        margin: 0;
+        border-radius: var(--code-tab-radius) var(--code-tab-radius) 0 0;
+    }
+
+    a:not(.mat-tab-link) {
+        color: var(--rvt-color-text);
+        font-size: var(--rvt-font-size-g);
+        background-color: var(--rvt-color-neutral-1);
+        padding: 10px 30px;
+        cursor: pointer;
+        &:not(.active):hover {
+            background-color: var(--rvt-color-neutral-2);
+        }
+
+        &.active {
+            background-color: var(--rvt-color-neutral-2);
+        }
+    }
+}

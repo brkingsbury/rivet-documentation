@@ -1,0 +1,112 @@
+<header class="page-header">
+    <h1>Drawer</h1>
+    <div class="header-icons">
+        <!-- <a class="rivet-icon-pdf" title="spec sheet" href=""
+        target="new"></a> -->
+        <!-- <a class="sketch" title="sketch file" href="" target="new">
+            <img src="../../assets/sketch.svg"/>
+        </a> -->
+        <!-- <app-compliance-marker></app-compliance-marker> -->
+    </div>
+</header>
+
+<section class="component-container">
+    <p>
+        Drawers are containers that slide in from the side.
+    </p>
+    <h3>Use Case</h3>
+    <p>
+        Use Drawers to contain important information or settings that are not needed to be shown directly on the
+        page. Drawers are triggered open using a button or tile and closed by clicking ‘Close’ within.
+    </p>
+    <h3>Implementation</h3>
+    <p>
+        Drawers, by default, do not have a button added to close the drawer (in most cases an 'x'). To do this add a
+        button with a click listener that calls
+        toggleDrawer().
+    </p>
+    <app-parameters [inputsConfig]="inputsConfig"
+                    [outputsConfig]="outputsConfig">
+    </app-parameters>
+</section>
+
+<section class="component-container">
+    <app-example-snippet>
+        <div class="example-component">
+            <button (click)="toggleDrawerA()">toggle drawer</button>
+            <rvt-drawer [drawerOpen]="toggleVariableA">
+                <div rivet-drawer-content>
+                    <button style="float: right;"
+                            class="rvt-btn-icon rivet-icon-menu-close"
+                            (click)="toggleDrawerA()"></button>
+                    <h2>Header</h2>
+                    <p>Here's some content</p>
+                </div>
+            </rvt-drawer>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<rvt-drawer [drawerOpen]="toggleVariable">
+    <div rivet-drawer-content>
+      <button style="float: right;" class="rvt-btn-icon rivet-icon-menu-close" (click)="toggleDrawer()"></button>
+      <h2>Header</h2>
+      <p>Here's some content</p>
+    </div>
+  </rvt-drawer>
+  </textarea>
+    </app-example-snippet>
+</section>
+<section class="component-container">
+    <h2>Apron Close</h2>
+    <p>
+        In some cases it may be desirable to have the apron close on an apron click event (or additionally fire a
+        confirmation of some sort). To allow this, simply hook a function into the apronClickEvent output.
+    </p>
+    <p>
+        To achieve the functionality of closing the drawer on apron click, simply ajust the toggle variable that
+        controls the state of the drawer.
+    </p>
+    <app-example-snippet>
+        <div class="example-component">
+            <button (click)="toggleDrawer()">toggle drawer</button>
+            <rvt-drawer [drawerOpen]="toggleVariable"
+                        (apronClickEvent)="apronClick()">
+                <div rivet-drawer-content>
+                    <button style="float: right;"
+                            class="rvt-btn-icon rivet-icon-menu-close"
+                            (click)="toggleDrawer()"></button>
+                    <h2>Header</h2>
+                    <p>Here's some content</p>
+                </div>
+            </rvt-drawer>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<rvt-drawer [drawerOpen]="toggleVariable" (apronClickEvent)="apronClick()">
+    <div rivet-drawer-content>
+      <button style="float: right;" class="rvt-btn-icon rivet-icon-menu-close" (click)="toggleDrawer()"></button>
+      <h2>Header</h2>
+      <p>Here's some content</p>
+    </div>
+  </rvt-drawer>
+  </textarea>
+
+        <textarea class="example-code"
+                  readonly
+                  title="TS">
+toggleVariable = false;
+
+toggleDrawer = function (): void {
+    this.toggleVariable = !this.toggleVariable;
+};
+
+apronClick = function (): void {
+    this.toggleVariable = false;
+}
+            </textarea>
+    </app-example-snippet>
+</section>

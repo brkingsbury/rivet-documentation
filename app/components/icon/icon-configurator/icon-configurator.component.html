@@ -1,0 +1,24 @@
+<p>Icon config</p>
+<mat-form-field>
+    <mat-select placeholder="Icon name" disableRipple disableOptionCentering>
+        <mat-option *ngFor="let ico of icons" [value]="ico" 
+        (click)="updateName(ico)">
+            <span class="icon-example rivet-icon-{{ico}}"></span> 
+            {{ico}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field>
+    <mat-select placeholder="Icon size" disableRipple disableOptionCentering>
+        <mat-option *ngFor="let size of sizes" [value]="size"
+        (click)="updateSize(size)">
+            {{size}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<br/>
+<code *ngIf="iconString">{{iconString}}</code>
+<p>Result:</p>
+<!-- <rvt-icon name="{{iconName}}" [size]="iconSize"></rvt-icon> -->
+<rvt-icon *ngIf="iconName" name="{{iconName}}"></rvt-icon>
+<div class="config-result"></div>

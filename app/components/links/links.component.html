@@ -1,0 +1,118 @@
+<header class="page-header">
+    <h1>Links</h1>
+    <div class="header-icons">
+        <!-- <a class="rivet-icon-pdf" title="spec sheet" href=""
+        target="new"></a> -->
+        <!-- <a class="sketch" title="sketch file" href="" target="new">
+            <img src="../../assets/sketch.svg"/>
+        </a> -->
+        <!-- <app-compliance-marker></app-compliance-marker> -->
+    </div>
+</header>
+
+
+<section class="component-container">
+    <header>
+        <p>
+            Links are clickable elements that navigate users to a new page.
+        </p>
+        <h3>Use Case</h3>
+        <p>
+            Use Links when navigating to new pages within the same site or outside of the site.
+        </p>
+        <h3>Implementation</h3>
+        <app-parameters [classesConfig]="classesConfig">
+        </app-parameters>
+    </header>
+</section>
+<section class="component-container">
+    <h2>Text links</h2>
+    <app-example-snippet>
+        <div class="example-component"
+             [class.inverse]="isInverse">
+            <rvt-slide-toggle class="inverse-toggle"
+                              label="Inverse"
+                              [checked]="isInverse"
+                              (toggleEvent)="isInverse = !isInverse">
+            </rvt-slide-toggle>
+            <a class="rvt-link"
+               [class.inverse]="isInverse"
+               href="#"
+               target="new">Link</a>
+        </div>
+
+        <textarea *ngIf="!isInverse"
+                  class="example-code"
+                  id="example"
+                  readonly
+                  title="HTML">
+<a class="rvt-link" href="#" target="new">Link</a>
+    </textarea>
+
+        <textarea *ngIf="isInverse"
+                  class="example-code"
+                  id="example"
+                  readonly>
+<a class="rvt-link inverse" href="#" target="new">Link</a>
+    </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <header>
+        <h2>Links as buttons</h2>
+        <h3>Use Case</h3>
+        <p>
+            Use Links as Buttons to draw more attention to the link with styling similar to buttons. These links still
+            direct users to another page.
+        </p>
+        <h3>Implementation</h3>
+        <p>In some instances, links to be more of a call to action but still direct users to another page. In these
+            cases we use links styled similar to buttons. This can be done by applying any of the <a
+               routerLink="/components/button">button</a> classes to an <code>&lt;a&gt;</code> tag.</p>
+    </header>
+
+    <app-example-snippet>
+        <div class="example-component"
+             [class.inverse]="isInverse2">
+
+            <rvt-slide-toggle class="inverse-toggle"
+                              label="Inverse"
+                              [checked]="isInverse2"
+                              (toggleEvent)="isInverse2 = !isInverse2">
+            </rvt-slide-toggle>
+
+            <a class="rvt-btn-primary"
+               [class.inverse]="isInverse2"
+               href="#"
+               target="new">Link</a>
+            <a class="rvt-btn-secondary"
+               [class.inverse]="isInverse2"
+               href="#"
+               target="new">Link</a>
+            <a class="rvt-btn-text"
+               [class.inverse]="isInverse2"
+               href="#"
+               target="new">Link</a>
+        </div>
+
+        <textarea *ngIf="!isInverse2"
+                  class="example-code"
+                  id="example"
+                  readonly
+                  title="HTML">
+<a class="rvt-btn-primary" href="#" target="new">Link</a>
+<a class="rvt-btn-secondary" href="#" target="new">Link</a>
+<a class="rvt-btn-text" href="#" target="new">Link</a>
+    </textarea>
+
+        <textarea *ngIf="isInverse2"
+                  class="example-code"
+                  id="example"
+                  readonly>
+<a class="rvt-btn-primary inverse" href="#" target="new">Link</a>
+<a class="rvt-btn-secondary inverse" href="#" target="new">Link</a>
+<a class="rvt-btn-text inverse" href="#" target="new">Link</a>
+    </textarea>
+    </app-example-snippet>
+</section>

@@ -1,0 +1,9 @@
+<header class="page-header">
+    <h1>Components overview</h1>
+</header>
+<section class="tile-container">
+    <button class="tile" *ngFor="let comp of components.comps" [routerLink]="comp.path">
+        <span>{{comp.name}}</span>
+        <img src="{{imgSrc + comp.path + '.png'}}"/>        
+    </button>
+</section>

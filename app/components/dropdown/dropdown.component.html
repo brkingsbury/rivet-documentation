@@ -1,0 +1,309 @@
+<header class="page-header">
+    <h1>Dropdowns</h1>
+    <div class="header-icons">
+        <!-- <a class="sketch" title="sketch file" href="" target="new">
+            <img src="../../assets/sketch.svg"/>
+        </a> -->
+        <!-- <app-compliance-marker></app-compliance-marker> -->
+    </div>
+</header>
+<section class="component-container">
+    <p>
+        Dropdowns are inputs that allow users to select an option from a list.
+    </p>
+    <h3>Use Case</h3>
+    <p>
+        Use Dropdowns when there is only one option the user can choose and 5-10 options to choose from. Consider using
+        Radio Buttons if there are less than 5 options or an Input field with autocomplete if there are more than 10
+        options.
+    </p>
+    <h3>Implementation</h3>
+    <p>
+        Dropdowns currently use the Angular Material dropdown component and directives as their basis.
+    </p>
+    <app-parameters [attrsConfig]="attrsConfig"
+                    [classesConfig]="classesConfig">
+    </app-parameters>
+</section>
+
+<section class="component-container">
+    <div class="controls">
+        <p>Dropdown states:</p>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="invCheck"
+                   [checked]="isInvalid"
+                   (change)="isInvalid = !isInvalid; isDisabled = false" />
+            <label for="invCheck">Invalid dropdown</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="disCheck"
+                   [checked]="isDisabled || isReadOnly"
+                   (change)="isDisabled = !isDisabled; isInvalid = false" />
+            <label for="disCheck">Disabled dropdown</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="roCheck"
+                   [checked]="isReadOnly && isDisabled"
+                   (change)="isReadOnly = !isReadOnly; isDisabled = isReadOnly; isInvalid = false" />
+            <label for="roCheck">Read Only dropdown</label>
+        </div>
+    </div>
+    <app-example-snippet>
+        <div class="example-component">
+            <mat-form-field [class.invalid]="isInvalid"
+                            [class.read-only]="isReadOnly">
+                <mat-select placeholder="Favorite food"
+                            disableRipple
+                            disableOptionCentering
+                            [disabled]="isDisabled">
+                    <mat-option *ngFor="let item of dropChoices"
+                                [value]="item">
+                        {{item}}
+                    </mat-option>
+                </mat-select>
+                <mat-hint>Helper Text</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <!-- Start code examples -->
+        <textarea class="example-code large"
+                  readonly
+                  title="HTML"
+                  #txtinput
+                  *ngIf="!isInvalid && !isDisabled && !isReadOnly">
+<mat-form-field>
+    <mat-select placeholder="Favorite food"
+                disableRipple
+                disableOptionCentering>
+        <mat-option *ngFor="let item of dropChoices"
+                    [value]="item">
+            { {item} }
+        </mat-option>
+    </mat-select>
+    <mat-hint>Helper Text</mat-hint>
+</mat-form-field>
+    </textarea>
+
+        <!-- invalid example -->
+        <textarea class="example-code large"
+                  readonly
+                  title="HTML"
+                  *ngIf="isInvalid && !isDisabled && !isReadOnly">
+<mat-form-field [class.invalid]="true">
+    <mat-select placeholder="Favorite food"
+                disableRipple
+                disableOptionCentering>
+        <mat-option *ngFor="let item of dropChoices"
+                    [value]="item">
+            { {item} }
+        </mat-option>
+    </mat-select>
+    <mat-hint>Helper Text</mat-hint>
+</mat-form-field>
+    </textarea>
+
+        <!-- disabled example -->
+        <textarea class="example-code large"
+                  readonly
+                  title="HTML"
+                  *ngIf="!isInvalid && isDisabled && !isReadOnly">
+<mat-form-field>
+    <mat-select placeholder="Favorite food"
+                disableRipple
+                disableOptionCentering
+                [disabled]="true">
+        <mat-option *ngFor="let item of dropChoices"
+                    [value]="item">
+            { {item} }
+        </mat-option>
+    </mat-select>
+    <mat-hint>Helper Text</mat-hint>
+</mat-form-field>
+    </textarea>
+
+        <!-- read-only example -->
+        <textarea class="example-code large"
+                  readonly
+                  title="HTML"
+                  *ngIf="!isInvalid && isDisabled && isReadOnly">
+<mat-form-field [class.read-only]="true">
+    <mat-select placeholder="Favorite food"
+                disableRipple
+                disableOptionCentering>
+        <mat-option *ngFor="let item of dropChoices"
+                    [value]="item">
+            { {item} }
+        </mat-option>
+    </mat-select>
+    <mat-hint>Helper Text</mat-hint>
+</mat-form-field>
+    </textarea>
+
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript"
+                  #txtInput>
+export class DropdownComponent implements OnInit {
+    dropChoices = ['One', 'Two', 'Three'];
+    selected = 'Two';
+}
+    </textarea>
+
+    </app-example-snippet>
+</section>
+
+<!-- Multi-Select Dropdowns -->
+<section class="component-container">
+    <header>
+        <h2>Multi-select dropdowns</h2>
+        <p>Multi-select dropdowns work the same way as regular dropdowns and use all the same styles and classes, but allow for multiple selections instead of just 1. <br/> See the <a href="https://material.angular.io/components/select/examples">material documentation</a> for more info.</p>
+    </header>
+
+    <p>In order to allow for multiple selections, <code>multiple</code> must be added to the <code>mat-select</code>
+        component.</p>
+
+    <app-example-snippet>
+        <div class="example-component">
+            <mat-form-field>
+                <mat-select placeholder="Favorite food"
+                            disableRipple
+                            disableOptionCentering
+                            multiple>
+                    <mat-option *ngFor="let item of multipleDrops"
+                                [value]="item">
+                        {{item}}
+                    </mat-option>
+                </mat-select>
+                <mat-hint>Helper Text</mat-hint>
+            </mat-form-field>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML"
+                  #txtInput>
+<mat-form-field>
+    <mat-select placeholder="Favorite food"
+                disableRipple
+                disableOptionCentering
+                multiple>
+        <mat-option *ngFor="let item of multipleDrops"
+            [value]="item">
+        { {item} }
+    </mat-option>
+    </mat-select>
+    <mat-hint>Helper Text</mat-hint>
+</mat-form-field>
+                </textarea>
+
+                  <textarea class="example-code"
+                  readonly
+                  title="Typescript"
+                  #txtInput>
+export class DropdownComponent implements OnInit {
+    multipleDrops = ['Pizza', 'Ice cream', 'Sushi', 'Brussel sprouts', 'Spinach'];
+}
+        </textarea>
+    </app-example-snippet>
+
+</section>
+
+<!-- Autocomplete Dropdowns -->
+<section class="component-container">
+    <header>
+        <h2>Autocomplete dropdowns</h2>
+        <p>Allows users to type out their input to narrow down the options, or to use as a normal dropdown. <br/> Please see the <a href="https://material.angular.io/components/autocomplete/overview">material documentation</a> for more info.</p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <mat-form-field>
+                <input matInput
+                       [matAutocomplete]="auto"
+                       placeholder="State"
+                       [formControl]="myControl">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let item of states"
+                                [value]="item">
+                        {{item}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML"
+                  #txtInput>
+<mat-form-field>
+    <input matInput
+            [matAutocomplete]="auto"
+            placeholder="State">
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let item of dropChoices"
+                    [value]="item">
+            { {item} }
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
+        </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript"
+                  #txtInput>
+export class DropdownComponent implements OnInit {
+    states = ['Alaska', 'California', 'Colorado', 'Georgia', 'Wisconsin'];
+}
+        </textarea>
+    </app-example-snippet>
+
+</section>
+
+
+<!-- High Level Dropdowns -->
+<section class="component-container">
+    <header>
+        <h2>High Level Dropdowns</h2>
+        <p>These dropdowns are to be used solely in navigation components</p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <mat-form-field class="high-level">
+                <mat-select disableRipple
+                            disableOptionCentering
+                            [(value)]="selected">
+                    <mat-option *ngFor="let item of dropChoices"
+                                [value]="item">
+                        {{ item }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML"
+                  #txtInput>
+<mat-form-field class="high-level">
+    <mat-select disableRipple disableOptionCentering>
+        <mat-option *ngFor="let item of dropChoices" [value]="item">
+            { {item} }
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+    </textarea>
+
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript"
+                  #txtInput>
+export class DropdownComponent implements OnInit {
+    dropChoices = ['One', 'Two', 'Three'];
+    selected = 'Two';
+}
+    </textarea>
+    </app-example-snippet>
+</section>

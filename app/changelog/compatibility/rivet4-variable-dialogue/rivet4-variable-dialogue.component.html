@@ -1,0 +1,20 @@
+<h5 mat-dialog-title>Rivet 4 Color Variables</h5>
+<div mat-dialog-content>
+    <p>Rivet v4 uses css variables to support dynamic color changing.</p>
+    <p>See <a routerLink="/style/color">branding variable standards</a> for more details</p>
+    <table>
+        <tr>
+            <th>CSS Variable Name</th>
+            <th>Variable Value</th>
+            <th>Sample</th>
+        </tr>
+        <tr *ngFor="let value of cssVariables">
+            <td>{{ value }}</td>
+            <td>{{ getValue(value) }}</td>
+            <td [style.background-color]="getValue(value)"></td>
+        </tr>
+    </table>
+    <div mat-dialog-actions>
+        <button class="rvt-btn-text"
+                [mat-dialog-close]>Close</button>
+    </div>

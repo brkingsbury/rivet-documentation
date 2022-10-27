@@ -1,0 +1,411 @@
+<header class="page-header">
+    <h1>Tiles</h1>
+</header>
+
+<section class="component-container">
+    <p>Tiles display content in a compact, recognizable format. Secondarily, Tiles can allow for quick interactions such
+        as select, edit, and delete.</p>
+
+    <h3>Use case</h3>
+    <p>Use a Tile to display one grouping of formatted content that represents a thing (such as a person, a piece of
+        property, or an account). Optionally, built in controls can be used to allow a user to select, edit, and delete
+        tiles when appropriate.</p>
+    <p>
+        When the same grouping of content appears in different locations, use a Tile in each instance to help the user
+        recognize the information and understand the connection between each location, even if there are different
+        controls available in each location.
+    </p>
+    <p>
+        Consider using <a class="rvt-link"
+           routerLink="/components/card">cards</a> when there are multiple groupings of related content that need to be
+        displayed in one area.</p>
+
+    <h3>Implementation</h3>
+
+    <p>Tiles are a container for any <code> ng-content</code> that is passed in. As selectable components,
+        <code>(tileSelect)</code> must always be passed in.
+    </p>
+
+
+    <app-parameters [inputsConfig]="inputsConfig"
+                    [outputsConfig]="outputsConfig">
+    </app-parameters>
+
+</section>
+
+<section class="component-container">
+    <div class="controls">
+        <p>Input states:</p>
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="selCheck"
+                   [checked]="canSelect"
+                   (change)="canSelect = !canSelect" />
+            <label for="selCheck">Can select tile</label>
+        </div>
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="editCheck"
+                   [checked]="canEdit"
+                   (change)="canEdit = !canEdit" />
+            <label for="editCheck">Can edit tile</label>
+        </div>
+
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="deleteCheck"
+                   [disabled]="!canEdit"
+                   [checked]="canDelete && canEdit"
+                   (change)="canDelete = !canDelete" />
+            <label for="deleteCheck">Can delete tile (tile must also be editable)</label>
+        </div>
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="disCheck"
+                   [disabled]="!canSelect"
+                   [checked]="isDis"
+                   (change)="isDis = !isDis" />
+            <label for="disCheck">Disable tile (tile must also be selectable)</label>
+        </div>
+        <div class="rvt-checkbox">
+            <input type="checkbox"
+                   id="roCheck"
+                   [checked]="isRO"
+                   (change)="isRO = !isRO" />
+            <label for="roCheck">Read-only tile</label>
+        </div>
+    </div>
+
+    <!-- ### NS ### -->
+    <app-example-snippet *ngIf="!canSelect && !canEdit">
+        <div class="example-component">
+            <rvt-tile>content</rvt-tile>
+        </div>
+
+        <textarea id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+    <rvt-tile>
+        content
+    </rvt-tile>
+            </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+no typescript required
+            </textarea>
+    </app-example-snippet>
+
+    <!-- ### RO ### -->
+    <app-example-snippet *ngIf="isRO">
+        <div class="example-component">
+            <rvt-tile [state]="'ReadOnly'">content</rvt-tile>
+        </div>
+
+        <textarea id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+    <rvt-tile [state]="'ReadOnly'">
+        content
+    </rvt-tile>
+            </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+no typescript required
+            </textarea>
+    </app-example-snippet>
+
+    <!-- ### E ### -->
+    <app-example-snippet *ngIf="!canSelect && canEdit && !canDelete">
+        <div class="example-component">
+            <rvt-tile [config]="tileConfig"
+                      (tileEdit)="editThisTile()">content</rvt-tile>
+        </div>
+        <textarea id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<rvt-tile [config]="tileConfig"
+    (tileEdit)="editThisTile()">
+    content
+</rvt-tile>  
+            </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+tileConfig = {
+    editText: 'Edit'
+};
+
+editThisTile() {
+    alert('edit tile');
+}
+            </textarea>
+    </app-example-snippet>
+
+    <!-- ### E + D ### -->
+    <app-example-snippet *ngIf="!canSelect && canEdit && canDelete">
+        <div class="example-component">
+            <rvt-tile [config]="tileConfig"
+                      (tileEdit)="editThisTile()"
+                      (tileDelete)="deleteThisTile()">content</rvt-tile>
+        </div>
+        <textarea id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<rvt-tile [config]="tileConfig"
+    (tileEdit)="editThisTile()"
+    (tileDelete)="deleteThisTile()">
+    content
+</rvt-tile>  
+        </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+tileConfig = {
+    deleteText: 'Are you sure you want to delete?',
+    cancelBtnText: 'Cancel',
+    deleteBtnText: 'Delete'
+};
+
+editThisTile() {
+    alert('edit tile');
+}
+deleteThisTile() {
+    alert('delete tile');
+}
+        </textarea>
+    </app-example-snippet>
+
+    <!-- ### S ### -->
+    <app-example-snippet *ngIf="canSelect && !canEdit && !isDis">
+        <div class="example-component">
+            <rvt-tile [config]="tileConfig"
+                      [state]="isTileSelected ? 'Selected' : 'Unselected'"
+                      (tileSelect)="selectThisTile()">content</rvt-tile>
+        </div>
+        <textarea id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<rvt-tile [config]="tileConfig"
+    (tileSelect)="selectThisTile()">
+    content
+</rvt-tile>  
+        </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+isTileSelected = true;
+
+tileConfig = {
+    isSelected: this.isTileSelected
+};
+
+selectThisTile() {
+    alert('This is tile is selected');
+}
+                      
+        </textarea>
+    </app-example-snippet>
+
+    <!-- ### S + E ### -->
+    <app-example-snippet *ngIf="canSelect && canEdit && !canDelete && !isDis">
+        <div class="example-component">
+            <rvt-tile [config]="tileConfig"
+                      [state]="isTileSelected ? 'Selected' : 'Unselected'"
+                      (tileSelect)="selectThisTile()"
+                      (tileEdit)="editThisTile()">content</rvt-tile>
+        </div>
+        <textarea id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<rvt-tile [config]="tileConfig"
+    (tileSelect)="selectThisTile()"
+    (tileEdit)="editThisTile()">
+    content
+</rvt-tile>                           
+        </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+isTileSelected = true;
+
+tileConfig = {
+    isSelected: this.isTileSelected,
+    editText: 'Edit'
+};
+
+editThisTile() {
+    alert('edit tile');
+}
+selectThisTile() {
+    alert('This is tile is selected');
+    this.isTileSelected = !this.isTileSelected;
+    this.tileConfig.isSelected = this.isTileSelected;
+}
+        </textarea>
+    </app-example-snippet>
+
+    <!-- ### S + E + D ### -->
+    <app-example-snippet *ngIf="canSelect && canEdit && canDelete && !isDis">
+        <div class="example-component">
+            <rvt-tile [config]="tileConfig"
+                      [state]="isTileSelected ? 'Selected' : 'Unselected'"
+                      (tileSelect)="selectThisTile()"
+                      (tileEdit)="editThisTile()"
+                      (tileDelete)="deleteThisTile()">content</rvt-tile>
+        </div>
+        <textarea id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<rvt-tile [config]="tileConfig"
+    (tileSelect)="selectThisTile()"
+    (tileEdit)="editThisTile()"
+    (tileDelete)="deleteThisTile()">
+    content
+</rvt-tile>                        
+        </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+isTileSelected = true;
+
+tileConfig = {
+    isSelected: this.isTileSelected,
+    deleteText: 'Are you sure you want to delete?',
+    cancelBtnText: 'Cancel',
+    deleteBtnText: 'Delete'
+};
+
+editThisTile() {
+    alert('edit tile');
+}
+deleteThisTile() {
+    alert('delete tile');
+}
+selectThisTile() {
+    alert('This is tile is selected');
+}                      
+        </textarea>
+    </app-example-snippet>
+
+    <!-- ### S + Dis ### -->
+    <app-example-snippet *ngIf="canSelect && !canEdit && isDis">
+        <div class="example-component">
+            <rvt-tile [config]="tileConfig2"
+                      [state]="'Disabled'"
+                      (tileSelect)="selectThisTile()">content</rvt-tile>
+        </div>
+        <textarea id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<rvt-tile [config]="tileConfig"
+    [state]="'Disabled'"
+    (tileSelect)="selectThisTile()">
+    content
+</rvt-tile>  
+        </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+isTileDisabled = true;
+
+tileConfig = {
+    isSelected: this.isTileSelected,
+    isDisabled: this.isTileDisabled
+};
+
+selectThisTile() {
+    alert('This is tile is selected');
+}
+                      
+        </textarea>
+    </app-example-snippet>
+
+    <!-- ### S + E + Dis ###-->
+    <app-example-snippet *ngIf="canSelect && canEdit && !canDelete && isDis">
+        <div class="example-component">
+            <rvt-tile [config]="tileConfig2"
+            [state]="'Disabled'"
+                      (tileSelect)="selectThisTile()"
+                      (tileEdit)="editThisTile()">content</rvt-tile>
+        </div>
+        <textarea id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<rvt-tile [config]="tileConfig"
+[state]="'Disabled'"
+    (tileSelect)="selectThisTile()"
+    (tileEdit)="editThisTile()">
+    content
+</rvt-tile>  
+        </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+isTileDisabled = true;
+
+tileConfig = {
+    isSelected: this.isTileSelected,
+    editText: 'Edit',
+    isDisabled: this.isTileDisabled
+};
+                      
+        </textarea>
+    </app-example-snippet>
+
+    <!-- ### S + E + D + Dis ### -->
+    <app-example-snippet *ngIf="canSelect && canEdit && canDelete && isDis">
+        <div class="example-component">
+            <rvt-tile [config]="tileConfig2"
+            [state]="'Disabled'"
+                      (tileSelect)="selectThisTile()"
+                      (tileEdit)="editThisTile()"
+                      (tileDelete)="deleteThisTile()">content</rvt-tile>
+        </div>
+        <textarea id="example-code-text"
+                  class="example-code"
+                  readonly
+                  title="HTML">
+<rvt-tile [config]="tileConfig"
+[state]="'Disabled'"
+    (tileSelect)="selectThisTile()"
+    (tileEdit)="editThisTile()"
+    (tileDelete)="deleteThisTile()">
+    content
+</rvt-tile>   
+        </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+isTileSelected = true;
+
+tileConfig = {
+    isSelected: this.isTileSelected,
+    deleteText: 'Are you sure you want to delete?',
+    cancelBtnText: 'Cancel',
+    deleteBtnText: 'Delete',
+    isDisabled: this.isTileDisabled
+};
+
+editThisTile() {
+    alert('edit tile');
+}
+deleteThisTile() {
+    alert('delete tile');
+}
+selectThisTile() {
+    alert('This is tile is selected?');
+}                      
+        </textarea>
+    </app-example-snippet>
+</section>

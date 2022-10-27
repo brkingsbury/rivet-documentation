@@ -1,0 +1,58 @@
+<div class="param-container" *ngIf="inputsConfig">
+    <p>Inputs</p>
+    <table>
+        <tr *ngFor="let item of inputsConfig">
+            <td>
+                <strong>{{item.name}}</strong>&nbsp;
+                <div class="data-type">{{item.type}}</div>
+            </td>
+            <td>
+                <span *ngIf="item.required">[Required]</span>
+                {{item.description}}
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="param-container" *ngIf="outputsConfig">
+    <p>Outputs</p>
+    <table>
+        <tr *ngFor="let item of outputsConfig">
+            <td>
+                <strong>{{item.name}}</strong>&nbsp;
+                <div class="data-type">{{item.type}}</div>
+            </td>
+            <td>
+                <span *ngIf="item.required">[Required]</span>
+                {{item.description}}
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="param-container" *ngIf="attrsConfig">
+    <p>Attributes</p>
+    <table>
+        <tr *ngFor="let item of attrsConfig">
+            <td>
+                <strong>{{item.name}}</strong>&nbsp;
+            </td>
+            <td>
+                <span *ngIf="item.required">[Required]</span>
+                {{item.description}}
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="param-container" *ngIf="classesConfig">
+    <p>Classes</p>
+    <table>
+        <tr *ngFor="let item of classesConfig">
+            <td>
+                <strong>{{item.name}}</strong>&nbsp;
+            </td>
+            <td>
+                <span *ngIf="item.required">[Required]</span>
+                {{item.description}}
+            </td>
+        </tr>
+    </table>
+</div>

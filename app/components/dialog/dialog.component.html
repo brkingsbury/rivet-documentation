@@ -1,0 +1,103 @@
+<header class="page-header">
+    <h1>Dialog</h1>
+    <div class="header-icons">
+        <!-- <a class="sketch" title="sketch file" href="" target="new">
+            <img src="../../assets/sketch.svg"/>
+        </a> -->
+        <!-- <app-compliance-marker></app-compliance-marker> -->
+    </div>
+</header>
+
+<section class="component-container">
+    <p>
+        Dialogs are overlays that require users to make or confirm a decision, or step through a process to complete
+        a task.
+    </p>
+    <h3>Use Case</h3>
+    <p>
+        Use Dialogs to notify users of important decisions that need to be confirmed or made. Dialogs are also used
+        to break up large tasks into a few steps. Make sure dialog information and instructions are informative,
+        concise, and clear. Consider using a <code>Snackbar</code> for a less disruptive notification.
+    </p>
+    <h3>Implementation</h3>
+    <p>
+        Dialogs currently use the Angular Material dialog component and directives as their basis. Within the
+        <code>dialogRef</code>, set it to <code>autoFocus: false</code> to prevent the buttons from being
+        focused on open.
+    </p>
+    <p>
+        Dialog implementation is split into two components. One component is created with the content of the dalog,
+        and the other passes the content component to the MatDialog service.
+    </p>
+</section>
+<section class="component-container">
+    <app-example-snippet>
+        <div class="example-component">
+            <button class="rvt-btn-primary"
+                    (click)="openDialog()">Test Dialog</button>
+        </div>
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-primary" (click)="openDialog()">Test Dialog</button>
+        </textarea>
+
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+import { MatDialog } from '@angular/material/dialog';
+
+@Component({
+    selector: 'example-component',
+    templateUrl: './example.component.html'
+})
+export class DialogComponent {
+    constructor(public dialog: MatDialog) {}
+
+    openDialog(): void {
+        const dialogRef = this.dialog.open(DialogComponentDialogComponent, {
+            width: '500px',
+            autoFocus: false
+        });
+    }
+}
+        </textarea>
+
+
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript - Content">
+import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+
+@Component({
+    selector: 'app-dialog-dialog',
+    templateUrl: './dialog-template.html'
+})
+export class DialogComponentDialogComponent {
+    constructor(public dialogRef: MatDialogRef<DialogComponentDialogComponent>) { }
+
+    onNoClick(): void {
+        this.dialogRef.close();
+    }
+}
+        </textarea>
+
+
+        <textarea class="example-code"
+                  readonly
+                  title="HTML - Content">
+<h5 mat-dialog-title>Title</h5>
+<div mat-dialog-content>
+    <p>This is where the dialog content lives.</p>
+</div>
+
+<div mat-dialog-actions>
+    <button class="rvt-btn-text" [mat-dialog-close]>Close</button>
+    <button class="rvt-btn-primary">Action</button>
+</div>
+        </textarea>
+        <!-- End Example -->
+    </app-example-snippet>
+</section>

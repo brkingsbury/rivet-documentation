@@ -1,0 +1,96 @@
+<header class="page-header">
+    <h1>Menu / Popover</h1>
+    <div class="component-version">
+        <p>Added
+            <a class="rvt-link"
+               routerLink="/changelog/versions">v5.9.4</a>
+        </p>
+    </div>
+</header>
+
+<section class="component-container">
+    <p>Menus use Angular Material for their functionality, for more information see <a
+           href="https://material.angular.io/components/menu/overview"
+           target="new">Material documentation</a></p>
+    <h3>Use case</h3>
+    <p>Menus are used to condense content or actions such as filters, and are attached to triggers such as buttons.</p>
+    <h3>Implementation</h3>
+    <p>Add <code>@import "menuStyles";</code> in your sites main SCSS file in order to get the Rivet styles.</p>
+    <p>Use <code>trigger.openMenu()</code> and <code>trigger.closeMenu()</code> to conditionally open and close the menu, either from within the menu view or not. </p>
+</section>
+
+<section class="component-container">
+    <h3>Simple menu</h3>
+    <p>Menus are simply containers that can include any variety of content.</p>
+    <app-example-snippet>
+        <div class="example-component">
+            <button class="rvt-btn-secondary"
+                    [matMenuTriggerFor]="menu">Open menu</button>
+            <mat-menu #menu="matMenu">
+                <button class="rvt-btn-text"
+                        (click)="test('option 1')">Option 1</button><br />
+                <button class="rvt-btn-text"
+                        (click)="test('option 2')">Option 2</button>
+            </mat-menu>
+        </div>
+
+        <textarea class="example-code large"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-secondary" [matMenuTriggerFor]="menu">
+    Open menu
+</button>
+<mat-menu #menu="matMenu">
+    <button class="rvt-btn-text" (click)="test('option 1')">Option 1</button>
+    <button class="rvt-btn-text" (click)="test('option 2')">Option 2</button>
+</mat-menu>
+                  </textarea>
+    </app-example-snippet>
+</section>
+
+<section class="component-container">
+    <h3>Menu with interactive content</h3>
+    <p>In order to include interactive content within your menu, add <code>$event.stopPropagation()</code> to any click
+        event to prevent the menu from closing by default.</p>
+    <app-example-snippet>
+        <div class="example-component">
+            <button class="rvt-btn-secondary"
+                    [matMenuTriggerFor]="menu2">Open menu</button>
+            <mat-menu #menu2="matMenu">
+                <p>You can put different content into menus</p><br />
+                <mat-form-field (click)="$event.stopPropagation()">
+                    <input matInput
+                           placeholder="Full name"
+                           value="Barry Banker" />
+                </mat-form-field>
+                <p>Including inputs, dropdowns, datepickers, and other buttons</p><br />
+                <button class="rvt-btn-secondary"
+                        (click)="close()">Close</button>
+            </mat-menu>
+        </div>
+
+        <textarea class="example-code large"
+                  readonly
+                  title="HTML">
+<button class="rvt-btn-secondary"
+    [matMenuTriggerFor]="menu2">
+    Open menu
+</button>
+<mat-menu #menu2="matMenu">
+    <p>You can put different content into menus</p>
+    <button class="rvt-btn-secondary" (click)="close()">Close</button>
+</mat-menu>
+                  </textarea>
+        <textarea class="example-code"
+                  readonly
+                  title="Typescript">
+import { MatMenuTrigger } from '@angular/material/menu';
+...
+@ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
+close() {
+    this.trigger.closeMenu();
+}
+                  </textarea>
+    </app-example-snippet>
+</section>

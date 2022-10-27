@@ -1,0 +1,104 @@
+<header class="page-header">
+    <h1>Tooltips</h1>
+</header>
+
+<div class="component-container">
+    <p>Tooltips provide contextual information that help a user understand an element on the page.</p>
+    <h3>Implementation</h3>
+    <app-parameters [inputsConfig]="inputsConfig"></app-parameters>
+</div>
+
+<div class="component-container">
+    <header>
+        <h2>Tooltip (on mouseover)</h2>
+        <h3>Use case</h3>
+        <p>Use Mouseover Tooltips to label or provide contextual information for unfamiliar icons and components.</p>
+
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <button rvtTooltip="Here's the value of the tooltip"
+                    class="rvt-btn-primary"
+                    rvtTooltipAbsolutePos>
+                Tooltip anchor
+            </button>
+            <span style="font-size: 30px; width: 30px;"
+                  rvtTooltip="Tooltips can be attached to icons as well"
+                  class="rivet-icon-help"></span>
+        </div>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<button
+  class="rvt-btn-primary"
+  rvtTooltip="Here's the value of the tooltip" rvtTooltipAbsolutePos>
+  Tooltip anchor
+</button>
+
+<span
+  rvtTooltip="Tooltips can be attached to icons as well"
+  class="rivet-icon-help">
+</span>
+  </textarea>
+    </app-example-snippet>
+</div>
+
+<div class="component-container">
+    <header>
+        <h2>Tooltip (delayed)</h2>
+        <h3>Use case</h3>
+        <p>Tooltips with a delay are useful for tooltips where we don't want it to be shown immediately on hover.  Delay is set in milliseconds.</p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <span style="font-size: 30px; width: 30px;"
+                  rvtTooltip="Tooltips can be assigned a delay with a rvtTooltipDelay attribute"
+                  rvtTooltipDelay="500"
+                  class="rivet-icon-help"></span>
+        </div>
+
+        <!-- Example -->
+        <p class="example-code-header">HTML</p>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<span rvtTooltip="Tooltips can be assigned a delay with a rvtTooltipDelay attribute"
+      rvtTooltipDelay="500"
+      class="rivet-icon-help"></span>
+  </textarea>
+    </app-example-snippet>
+</div>
+
+<div class="component-container">
+    <header>
+        <h2>Tooltip (manual trigger)</h2>
+        <h3>Use case</h3>
+        <p>Use Manually Triggered Tooltips to call attention to something that has occurred automatically.</p>
+    </header>
+    <app-example-snippet>
+        <div class="example-component">
+            <button (click)="triggerError()"
+                    [rvtTooltip]="tooltipValue"
+                    rvtTooltipClass="error-tooltip"
+                    [rvtManualTooltipShow]="showTooltip"
+                    class="rvt-btn-primary">
+                Toggle Error
+            </button>
+            <span style="font-size: 16px;">showTooltip: {{ showTooltip }}</span>
+        </div>
+
+        <!-- Example -->
+        <p class="example-code-header">HTML</p>
+        <textarea class="example-code"
+                  readonly
+                  title="HTML">
+<button
+  rvtTooltip="Static tooltip text"
+  rvtTooltipClass="error-tooltip"
+  [rvtManualTooltipShow]="showTooltip"
+  class="rvt-btn-primary">
+  Tooltip anchor
+</button>
+  </textarea>
+    </app-example-snippet>
+</div>
